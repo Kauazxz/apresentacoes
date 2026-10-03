@@ -1,0 +1,14 @@
+# sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# arquivos de bloqueio do Office/LibreOffice abertos
+~$*
+.~lock.*#
+
+# ambiente e dependências, caso alguma apresentação vire projeto web
+.env
+.env.*
+node_modules/
+dist/
