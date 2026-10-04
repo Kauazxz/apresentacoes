@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className+=" js";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grupo Encopetro — Portfólio 2026</title>
+<meta name="description" content="Grupo Encopetro (Encopetro e ESEEL Engenharia Estrutural): 40 anos de projetos e análises estruturais, inspeções, fiscalização e gerência de obras. RJ, ES e SP, desde 1986.">
+<link rel="icon" href="fotos/logo-marca.png">
+<style>
+/*FONTES*/
+
+/* ================================================================
+   TOKENS
+   ================================================================ */
+:root{
+  --azul:#01468b;
+  --azul-2:#0b5cb3;
+  --aco:#62b0ff;
+  --noite:#04162d;
+  --noite-2:#071f3d;
+  --grafite:#383836;
+  --gelo:#eef2f7;
+  --papel:#ffffff;
+  --tinta:#0d1b2e;
+  --cinza:#5a6676;
+  --cinza-2:#8a95a5;
+  --linha:rgba(13,27,46,.12);
+  --linha-esc:rgba(255,255,255,.14);
+  --pad-x:clamp(20px,6vw,96px);
+  --pad-y:clamp(56px,8vh,96px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --display:'Barlow',system-ui,'Segoe UI',Arial,sans-serif;
+  --cond:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--noite);color:var(--tinta);font-family:var(--display);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.04;letter-spacing:-.015em}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.ponto{color:var(--aco)}
+.claro .ponto,.gelo .ponto{color:var(--azul)}
+
+/* ================================================================
+   SEÇÕES (cada uma é um "slide")
+   ================================================================ */
+section{position:relative;min-height:100vh;padding:var(--pad-y) var(--pad-x);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.escuro{background:var(--noite);color:#fff}
+.escuro-2{background:var(--noite-2);color:#fff}
+.claro{background:var(--papel);color:var(--tinta)}
+.gelo{background:var(--gelo);color:var(--tinta)}
+.dentro{width:100%;max-width:1320px;margin:0 auto;position:relative;z-index:2}
+
+/* olho: traço + rótulo */
+.traco{width:96px;height:6px;background:var(--aco);margin-bottom:20px;transform-origin:left;transition:transform .9s var(--ease) .1s}
+.js .traco{transform:scaleX(0)}
+.claro .traco,.gelo .traco{background:var(--azul)}
+.js .vis .traco,.js .vis.traco{transform:scaleX(1)}
+.olho{font-family:var(--cond);font-weight:600;font-size:.86rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;display:flex;gap:10px;align-items:baseline}
+.olho b{color:var(--aco);font-weight:600}
+.claro .olho b,.gelo .olho b{color:var(--azul)}
+.escuro .olho,.escuro-2 .olho{color:rgba(255,255,255,.88)}
+.claro .olho,.gelo .olho{color:var(--tinta)}
+.h2{font-size:clamp(2rem,3.9vw,3.5rem)}
+.lead{font-size:clamp(1rem,1.3vw,1.2rem);line-height:1.6}
+.escuro .lead,.escuro-2 .lead{color:rgba(255,255,255,.78)}
+.claro .lead,.gelo .lead{color:var(--cinza)}
+.cabeca{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(26px,4vh,44px)}
+@media screen and (max-width:900px){.cabeca{grid-template-columns:1fr;gap:16px}}
+
+/* revelação */
+.rv{transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv{opacity:0;transform:translateY(28px)}
+.js .rv.vis{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}.rv.d6{transition-delay:.48s}.rv.d7{transition-delay:.56s}.rv.d8{transition-delay:.64s}
+
+/* ================================================================
+   BARRA SUPERIOR
+   ================================================================ */
+#topo{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad-x);transition:background .4s,padding .4s,box-shadow .4s}
+#topo.solido{background:rgba(4,22,45,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:11px var(--pad-x);box-shadow:0 1px 0 var(--linha-esc)}
+.marca{display:flex;align-items:center;gap:12px;color:#fff}
+.marca .logo40{width:58px;height:auto}
+.marca .m1{font-family:var(--cond);font-weight:600;letter-spacing:.14em;font-size:.98rem;line-height:1}
+.marca .m2{font-family:var(--cond);font-weight:500;letter-spacing:.16em;font-size:.66rem;opacity:.75;margin-top:3px}
+.btn-apr{display:inline-flex;align-items:center;gap:10px;background:var(--azul);color:#fff;border:0;padding:12px 20px;font-family:var(--cond);font-weight:600;letter-spacing:.16em;font-size:.82rem;text-transform:uppercase;transition:background .3s,transform .3s var(--ease)}
+.btn-apr:hover{background:var(--azul-2);transform:translateY(-2px)}
+.btn-apr svg{width:17px;height:17px}
+
+/* indicador de capítulo */
+#pilula{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140%);z-index:55;background:rgba(4,22,45,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;padding:11px 22px 13px;font-size:.84rem;font-weight:500;min-width:250px;text-align:center;transition:transform .5s var(--ease);box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+#pilula.on{transform:translate(-50%,0)}
+#pilula b{font-weight:700}
+#pilula .barra{position:absolute;left:0;bottom:0;height:3px;background:var(--aco);width:0;transition:width .2s linear}
+#barra-prog{position:fixed;top:0;left:0;height:3px;background:var(--aco);z-index:70;width:0}
+
+/* ================================================================
+   CAPA
+   ================================================================ */
+#capa{min-height:100vh;justify-content:center;padding-top:96px;padding-bottom:84px}
+#capa .foto{position:absolute;inset:0;background:url(fotos/capa-ponte.webp) 60% 50%/cover no-repeat;animation:kb 22s ease-out both;z-index:0}
+@keyframes kb{from{transform:scale(1.16)}to{transform:scale(1)}}
+#capa::after{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,rgba(4,22,45,.97) 0%,rgba(4,22,45,.9) 34%,rgba(4,22,45,.55) 58%,rgba(4,22,45,.15) 100%),
+  linear-gradient(0deg,rgba(4,22,45,.7) 0%,transparent 40%)}
+.capa-txt{max-width:720px}
+.selo40{display:flex;align-items:center;gap:22px;margin:4px 0 26px}
+.selo40 img{width:118px;height:auto}
+.selo40 .liga{width:90px;height:2px;background:rgba(255,255,255,.5);position:relative}
+.selo40 .liga::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;background:var(--aco);transform:translate(-50%,-50%)}
+.selo40 .desde{font-family:var(--cond);font-weight:600;letter-spacing:.18em;font-size:.9rem;line-height:1.35;color:rgba(255,255,255,.85)}
+.selo40 .desde b{display:block;font-size:2.1rem;letter-spacing:.04em;color:#fff;font-weight:600}
+h1.titulo{font-size:clamp(2.6rem,5.6vw,5rem);color:#fff;margin-bottom:26px;letter-spacing:-.025em}
+.capa-lead{font-size:clamp(1.05rem,1.45vw,1.3rem);color:rgba(255,255,255,.86);max-width:600px;line-height:1.55}
+.rolar{position:absolute;left:var(--pad-x);bottom:34px;z-index:3;display:flex;align-items:center;gap:16px;font-family:var(--cond);font-weight:600;letter-spacing:.24em;font-size:.78rem;color:rgba(255,255,255,.8)}
+.rolar i{width:1px;height:46px;background:rgba(255,255,255,.35);position:relative;overflow:hidden}
+.rolar i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:#fff;animation:desce 2.2s ease-in-out infinite}
+@keyframes desce{to{top:100%}}
+.capa-servicos{position:absolute;right:var(--pad-x);bottom:34px;z-index:3;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:46%}
+.capa-servicos span{font-family:var(--cond);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.74rem;color:#fff;border:1px solid rgba(255,255,255,.35);padding:6px 11px;background:rgba(4,22,45,.35);backdrop-filter:blur(4px)}
+@media screen and (max-width:900px){.capa-servicos{display:none}}
+
+/* ================================================================
+   QUEM SOMOS
+   ================================================================ */
+.sobre{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.sobre p+p{margin-top:16px}
+.sedes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.sede{border-top:4px solid var(--azul);background:var(--gelo);padding:18px 18px 16px}
+.sede .n{font-family:var(--cond);font-weight:600;letter-spacing:.16em;font-size:.8rem;color:var(--azul)}
+.sede h4{font-size:1.25rem;margin:4px 0 4px}
+.sede p{font-size:.92rem;color:var(--cinza)}
+.mosaico{position:relative;height:min(68vh,560px)}
+.mosaico figure{position:absolute;margin:0;overflow:hidden;box-shadow:0 30px 60px -30px rgba(4,22,45,.55)}
+.mosaico figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.mosaico figure:hover img{transform:scale(1.06)}
+.mosaico .f1{left:0;top:0;width:72%;height:70%}
+.mosaico .f2{right:0;bottom:0;width:52%;height:52%;border:8px solid #fff}
+.mosaico .tag40{position:absolute;left:6%;bottom:6%;background:var(--azul);color:#fff;padding:16px 20px;font-family:var(--cond);font-weight:600;letter-spacing:.12em;z-index:2}
+.mosaico .tag40 b{display:block;font-size:2.6rem;letter-spacing:0;line-height:1}
+@media screen and (max-width:900px){.sobre{grid-template-columns:1fr}.mosaico{height:420px}}
+
+/* ================================================================
+   NÚMEROS
+   ================================================================ */
+.num-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.gigante{font-family:var(--display);font-weight:700;font-size:clamp(5rem,12vw,10.5rem);line-height:.9;color:var(--aco);letter-spacing:-.04em;display:flex;align-items:flex-start}
+.gigante .mais{font-size:.55em;margin-left:.04em;line-height:1}
+.gig-leg{font-size:clamp(1.3rem,2.1vw,1.9rem);font-weight:600;line-height:1.25;margin:22px 0 10px;max-width:640px}
+.gig-sub{color:rgba(255,255,255,.7);font-size:1rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha-esc);border:1px solid var(--linha-esc);margin-top:clamp(30px,6vh,56px)}
+.stat{background:var(--noite);padding:22px 22px 20px}
+.stat .v{font-weight:700;font-size:clamp(1.9rem,3vw,2.7rem);line-height:1;color:#fff;display:flex;align-items:flex-start}
+.stat .v small{font-size:.5em;color:var(--aco);margin-right:4px;margin-top:.15em}
+.stat .r{font-family:var(--cond);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:rgba(255,255,255,.65);margin-top:10px;line-height:1.35}
+@media screen and (max-width:900px){.num-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.ponte-svg{display:none}}
+
+/* roleta de dígitos */
+.slot{display:inline-flex;overflow:hidden;line-height:1;height:1em;font-variant-numeric:tabular-nums}
+.slot .col{display:inline-block;height:1em;overflow:hidden}
+.slot .col i{display:flex;flex-direction:column;font-style:normal;transform:translateY(0);transition:transform 1.8s cubic-bezier(.16,1,.3,1)}
+.slot .col i b{display:block;height:1em;font-weight:inherit}
+.slot.on .col i{transform:translateY(calc(var(--d) * -1em))}
+.slot .sep{display:inline-block}
+
+/* desenho da ponte */
+.ponte-svg{width:100%;height:auto}
+.ponte-svg path{fill:none;stroke:rgba(255,255,255,.62);stroke-width:1.4;stroke-dasharray:1;transition:stroke-dashoffset 2.4s var(--ease)}
+.js .ponte-svg path{stroke-dashoffset:1}
+.ponte-svg .forte{stroke:var(--aco);stroke-width:2.2}
+.js .ponte-svg.vis path{stroke-dashoffset:0}
+.ponte-svg path:nth-child(3n){transition-delay:.15s}.ponte-svg path:nth-child(3n+1){transition-delay:.35s}.ponte-svg path:nth-child(3n+2){transition-delay:.55s}
+
+/* ================================================================
+   PRESENÇA
+   ================================================================ */
+.pres{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.mapa svg{width:100%;height:auto;max-height:76vh}
+.mapa path{fill:#dfe6ef;stroke:#fff;stroke-width:1.2;transition:fill .8s var(--ease)}
+html:not(.js) .mapa #pm-RJ,html:not(.js) .mapa #pm-ES{fill:var(--azul)}
+html:not(.js) .mapa #pm-SP{fill:var(--azul)}
+.mapa.vis #pm-RJ{fill:var(--azul);transition-delay:.2s}
+.mapa.vis #pm-ES{fill:var(--azul);transition-delay:.45s}
+.mapa.vis #pm-SP{fill:var(--azul);transition-delay:.7s}
+.ufs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0 24px}
+.uf{border-left:4px solid var(--azul);padding:4px 0 4px 14px}
+.uf b{font-size:1.6rem;display:block;line-height:1.1}
+.uf span{font-size:.86rem;color:var(--cinza)}
+.uf.sp{border-color:var(--azul)}
+.cidades{display:flex;flex-wrap:wrap;gap:7px}
+.cidades span{font-size:.8rem;padding:5px 10px;background:var(--gelo);color:var(--tinta);border:1px solid var(--linha)}
+.cid-tit{font-family:var(--cond);font-weight:600;letter-spacing:.16em;font-size:.78rem;text-transform:uppercase;color:var(--cinza);margin-bottom:10px}
+@media screen and (max-width:900px){.pres{grid-template-columns:1fr}}
+
+/* ================================================================
+   DIVISOR DE CAPÍTULO
+   ================================================================ */
+.divisor{justify-content:flex-end;padding-bottom:clamp(60px,12vh,120px)}
+.divisor .foto{position:absolute;inset:-6% 0;background-size:cover;background-position:center;z-index:0;transform:scale(1.08);transition:transform 2.6s var(--ease)}
+.divisor.vis .foto{transform:scale(1)}
+.divisor::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(4,22,45,.96) 0%,rgba(4,22,45,.72) 45%,rgba(4,22,45,.35) 100%)}
+.div-num{font-weight:700;font-size:clamp(6rem,15vw,13rem);line-height:.8;color:var(--aco);letter-spacing:-.05em;margin-bottom:22px}
+.divisor h2{font-size:clamp(2.6rem,6vw,5.4rem);color:#fff;letter-spacing:-.03em}
+.divisor .lead{max-width:640px;margin-top:20px}
+
+/* ================================================================
+   ÁREAS DE ATUAÇÃO
+   ================================================================ */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.area{position:relative;min-height:clamp(220px,30vh,280px);overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.area img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.area::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,22,45,.96) 8%,rgba(4,22,45,.55) 55%,rgba(4,22,45,.15));transition:background .5s}
+.area:hover img{transform:scale(1.08)}
+.area:hover::after{background:linear-gradient(0deg,rgba(1,70,139,.97) 10%,rgba(1,70,139,.7) 60%,rgba(1,70,139,.3))}
+.area>*:not(img){position:relative;z-index:2}
+.area .n{font-family:var(--cond);font-weight:600;letter-spacing:.18em;font-size:.78rem;color:var(--aco);margin-bottom:6px}
+.area h3{font-size:1.38rem;margin-bottom:8px}
+.area p{font-size:.92rem;color:rgba(255,255,255,.82);line-height:1.45}
+.faixa{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--azul);color:#fff;padding:18px 26px;flex-wrap:wrap}
+.faixa b{font-size:1.5rem}
+.faixa span{font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;font-size:.86rem;opacity:.85}
+@media screen and (max-width:900px){.areas{grid-template-columns:1fr 1fr}}
+@media screen and (max-width:600px){.areas{grid-template-columns:1fr}}
+
+/* ================================================================
+   INTRO DIVIDIDA (foto + texto)
+   ================================================================ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.split .foto-g{position:relative;height:min(70vh,580px);overflow:hidden}
+.split .foto-g img{width:100%;height:100%;object-fit:cover;transition:transform 8s linear}
+.split .foto-g.vis img{transform:scale(1.07)}
+.split .leg{position:absolute;left:0;bottom:0;background:var(--azul);color:#fff;padding:12px 18px;font-family:var(--cond);font-weight:600;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase}
+.split p+p{margin-top:16px}
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.pilares div{border-top:3px solid var(--aco);padding-top:12px;font-weight:600;font-size:1rem}
+.claro .pilares div,.gelo .pilares div{border-color:var(--azul)}
+.pilares small{display:block;font-weight:400;font-size:.84rem;opacity:.75;margin-top:4px;line-height:1.4}
+@media screen and (max-width:900px){.split{grid-template-columns:1fr}.split .foto-g{height:360px}}
+
+/* ================================================================
+   CARTÕES DE OBRA
+   ================================================================ */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--papel);display:flex;flex-direction:column;border:1px solid var(--linha);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(4,22,45,.6)}
+.escuro .card,.escuro-2 .card{background:var(--noite-2);border-color:var(--linha-esc);color:#fff}
+.card .ft{position:relative;aspect-ratio:16/10;overflow:hidden;background:#cfd8e3}
+.card .ft img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.card:hover .ft img{transform:scale(1.07)}
+.card .met{position:absolute;left:0;bottom:0;background:var(--azul);color:#fff;font-family:var(--cond);font-weight:600;letter-spacing:.06em;font-size:.82rem;padding:5px 10px}
+.card .tx{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.card h3{font-size:1.02rem;line-height:1.2;letter-spacing:0}
+.card .loc{font-family:var(--cond);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--azul)}
+.escuro .card .loc,.escuro-2 .card .loc{color:var(--aco)}
+.card p{font-size:.86rem;line-height:1.45;color:var(--cinza)}
+.escuro .card p,.escuro-2 .card p{color:rgba(255,255,255,.7)}
+.cards.c4l .card .ft{aspect-ratio:4/3}
+@media screen and (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media screen and (max-width:560px){.cards{grid-template-columns:1fr}}
+
+/* coluna lateral + grade */
+.lado{display:grid;grid-template-columns:.36fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.lado .cards{grid-template-columns:repeat(4,1fr)}
+.destaque-num{margin-top:28px;display:grid;gap:18px}
+.destaque-num div{border-left:4px solid var(--aco);padding-left:16px}
+.claro .destaque-num div,.gelo .destaque-num div{border-color:var(--azul)}
+.destaque-num>div>b{font-size:clamp(2.4rem,4vw,3.4rem);line-height:1;display:flex;align-items:flex-start;color:var(--aco)}
+.claro .destaque-num>div>b,.gelo .destaque-num>div>b{color:var(--azul)}
+.destaque-num b small{font-size:.5em;margin-right:4px;margin-top:.12em}
+.destaque-num>div>span{font-size:.9rem;opacity:.8;display:block;margin-top:6px;line-height:1.4}
+@media screen and (max-width:1100px){.lado{grid-template-columns:1fr}.lado .cards{grid-template-columns:repeat(2,1fr)}}
+@media screen and (max-width:560px){.lado .cards{grid-template-columns:1fr}}
+
+.tecnicas{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tecnicas span{font-family:var(--cond);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;padding:6px 11px;border:1px solid var(--linha);background:var(--papel)}
+
+/* ================================================================
+   PATRIMÔNIO (linha do tempo)
+   ================================================================ */
+.tempo{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:10px}
+.tempo::before{content:"";position:absolute;left:0;right:0;top:calc(var(--ft-h) + 34px);height:2px;background:var(--linha-esc)}
+.tempo::after{content:"";position:absolute;left:0;top:calc(var(--ft-h) + 34px);height:2px;width:0;background:var(--aco);transition:width 2.2s var(--ease) .3s}
+.tempo.vis::after,html:not(.js) .tempo::after{width:100%}
+.tempo{--ft-h:clamp(150px,22vh,220px)}
+.marco .ft{height:var(--ft-h);overflow:hidden}
+.marco .ft img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35);transition:filter .6s,transform 1s var(--ease)}
+.marco:hover .ft img{filter:none;transform:scale(1.06)}
+.marco .quando{font-family:var(--cond);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:rgba(255,255,255,.6);margin-top:46px;position:relative}
+.marco .quando::before{content:"";position:absolute;left:0;top:-22px;width:12px;height:12px;background:var(--aco);transform:translateY(-1px)}
+.marco .ano{font-weight:700;font-size:clamp(1.9rem,3vw,2.6rem);color:#fff;margin-top:4px;line-height:1}
+.marco p b{color:#fff;font-weight:600}
+.marco h4{font-size:1.02rem;margin:10px 0 6px;line-height:1.25}
+.marco p{font-size:.84rem;color:rgba(255,255,255,.68);line-height:1.45}
+@media screen and (max-width:1000px){.tempo{grid-template-columns:1fr 1fr}.tempo::before,.tempo::after{display:none}}
+
+/* ================================================================
+   OBRAS EM DESTAQUE
+   ================================================================ */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filtros button{border:1px solid var(--linha-esc);background:transparent;color:rgba(255,255,255,.8);padding:9px 16px;font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;transition:all .3s}
+.filtros button:hover{border-color:#fff;color:#fff}
+.filtros button[aria-pressed="true"]{background:#fff;color:var(--noite);border-color:#fff}
+.obras{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.obra{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:#0b2a50;border:0;padding:0;text-align:left;color:#fff;display:block;width:100%}
+.obra img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.obra::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,22,45,.95) 6%,rgba(4,22,45,.25) 55%,transparent)}
+.obra:hover img{transform:scale(1.08)}
+.obra .ot{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 16px}
+.obra .ot b{display:block;font-size:1rem;line-height:1.2}
+.obra .ot span{font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;color:var(--aco)}
+.obra .qt{position:absolute;top:10px;right:10px;z-index:2;background:rgba(4,22,45,.75);font-family:var(--cond);font-weight:600;letter-spacing:.08em;font-size:.74rem;padding:4px 8px;display:flex;gap:6px;align-items:center}
+.obra .qt svg{width:13px;height:13px}
+.obra.esconde{display:none}
+.obra .ver{position:absolute;inset:0;z-index:3;display:grid;place-items:center;opacity:0;transition:opacity .4s}
+.obra .ver i{font-style:normal;font-family:var(--cond);font-weight:600;letter-spacing:.18em;font-size:.8rem;border:1px solid #fff;padding:9px 14px;background:rgba(1,70,139,.6)}
+.obra:hover .ver,.obra:focus-visible .ver{opacity:1}
+@media screen and (max-width:1100px){.obras{grid-template-columns:repeat(3,1fr)}}
+@media screen and (max-width:760px){.obras{grid-template-columns:repeat(2,1fr)}}
+
+/* páginas de obra só para impressão */
+.obras-print{display:none}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:100;background:rgba(3,13,27,.96);display:none;grid-template-columns:1fr 360px;color:#fff}
+#lb.on{display:grid;animation:aparece .35s var(--ease)}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+#lb .palco{position:relative;display:grid;place-items:center;padding:60px 70px}
+#lb .palco img{max-width:100%;max-height:calc(100vh - 160px);object-fit:contain;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);animation:aparece .4s}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(255,255,255,.35);background:rgba(4,22,45,.6);display:grid;place-items:center;transition:background .3s}
+#lb .nav:hover{background:var(--azul)}
+#lb .ant{left:14px}#lb .prox{right:14px}
+#lb .nav svg{width:22px;height:22px}
+#lb .info{background:var(--noite-2);padding:70px 30px 30px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+#lb .info .loc{font-family:var(--cond);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--aco)}
+#lb .info h3{font-size:1.6rem;line-height:1.15}
+#lb .info p{color:rgba(255,255,255,.78);font-size:.96rem}
+#lb .miniaturas{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+#lb .miniaturas button{border:2px solid transparent;padding:0;aspect-ratio:1;overflow:hidden;background:none;opacity:.6;transition:opacity .3s,border-color .3s}
+#lb .miniaturas button.at{border-color:var(--aco);opacity:1}
+#lb .miniaturas img{width:100%;height:100%;object-fit:cover}
+#lb .fechar{position:absolute;top:16px;right:16px;z-index:3;width:46px;height:46px;border:1px solid rgba(255,255,255,.35);background:rgba(4,22,45,.6);display:grid;place-items:center}
+#lb .fechar svg{width:20px;height:20px}
+#lb .cont{font-family:var(--cond);font-weight:600;letter-spacing:.14em;font-size:.8rem;color:rgba(255,255,255,.6)}
+@media screen and (max-width:860px){#lb{grid-template-columns:1fr;grid-template-rows:1fr auto}#lb .palco{padding:60px 12px 12px}#lb .info{padding:20px}}
+
+/* ================================================================
+   PROJETOS INTEGRADOS, SERVIÇOS, CLIENTES, EQUIPE
+   ================================================================ */
+.integ{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:clamp(220px,32vh,300px) clamp(170px,24vh,230px);gap:14px}
+.ig{position:relative;margin:0;overflow:hidden;background:#fff;border:1px solid var(--linha)}
+.ig img{width:100%;height:100%;object-fit:contain;transition:transform 1s var(--ease)}
+.ig-arq img{object-fit:cover;object-position:center 55%}
+.ig:hover img{transform:scale(1.05)}
+.ig figcaption{position:absolute;left:0;bottom:0;background:var(--azul);color:#fff;font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;padding:7px 14px}
+.ig small{position:absolute;right:8px;bottom:6px;font-size:.66rem;color:var(--cinza);background:rgba(255,255,255,.85);padding:1px 6px}
+.ig-arq{grid-column:1/3}
+.ig-info{background:var(--azul);color:#fff;padding:22px 24px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.ig-info h3{font-size:1.3rem}
+.ig-info p{font-size:.9rem;color:rgba(255,255,255,.86);line-height:1.5}
+.disc{display:grid;gap:8px;margin-top:2px}
+.disc div{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.95rem}
+.disc svg{width:30px;height:30px;padding:5px;border:1.5px solid rgba(255,255,255,.6);border-radius:50%;flex:0 0 auto}
+.serv{display:grid;grid-template-columns:1.5fr 1fr .8fr 1fr;gap:14px}
+.sv{background:#fff;border-top:5px solid var(--azul);padding:20px 20px 22px;box-shadow:0 14px 30px -26px rgba(4,22,45,.5)}
+.sv-n{font-family:var(--cond);font-weight:600;letter-spacing:.18em;font-size:.78rem;color:var(--azul)}
+.sv h3{font-size:1.3rem;margin:4px 0 14px}
+.sv-l{display:flex;flex-wrap:wrap;gap:6px}
+.sv-l span{font-size:.84rem;padding:5px 10px;background:var(--gelo);border:1px solid var(--linha)}
+.softwares{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--noite);color:#fff;padding:16px 22px}
+.softwares span{font-family:var(--cond);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;color:rgba(255,255,255,.7);margin-right:8px}
+.softwares b{font-size:1.05rem;padding:4px 12px;border:1px solid var(--linha-esc)}
+.logos{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.logos div{background:#fff;border:1px solid var(--linha);height:clamp(80px,11vh,104px);display:flex;align-items:center;justify-content:center;padding:12px 18px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s}
+.logos div:hover{transform:translateY(-3px);box-shadow:0 14px 28px -20px rgba(4,22,45,.5)}
+.logos img{width:auto;height:auto;max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain}
+.inst-tit{font-family:var(--cond);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--cinza);margin:26px 0 10px}
+.logos.inst{grid-template-columns:repeat(9,1fr)}
+.logos.inst div{height:clamp(60px,8vh,76px);padding:8px 10px}
+.pessoas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pessoa{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;background:var(--noite);border:1px solid var(--linha-esc);padding:10px 12px}
+.pessoa .rosto{width:56px;height:56px;box-shadow:0 0 0 2px var(--azul)}
+.pessoa h4{font-size:.95rem;line-height:1.2}
+.pessoa span{display:block;font-family:var(--cond);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;color:var(--aco);margin-top:3px}
+@media screen and (max-width:1000px){.serv{grid-template-columns:1fr 1fr}.integ{grid-template-columns:1fr 1fr;grid-template-rows:none}.ig-arq{grid-column:1/3;height:240px}.ig{height:200px}.ig-info{grid-column:1/3}.logos{grid-template-columns:repeat(3,1fr)}.logos.inst{grid-template-columns:repeat(3,1fr)}}
+@media screen and (max-width:600px){.serv{grid-template-columns:1fr}.integ{grid-template-columns:1fr}.ig-arq,.ig-info{grid-column:auto}.pessoas{grid-template-columns:1fr}}
+
+/* ================================================================
+   ATC
+   ================================================================ */
+.atc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
+.norma{display:inline-block;border:2px solid var(--azul);color:var(--azul);font-weight:700;padding:10px 16px;margin:22px 0 26px;font-size:.98rem}
+.atc-pil{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.atc-pil div{background:#fff;border-top:6px solid var(--azul);padding:16px;box-shadow:0 14px 30px -24px rgba(4,22,45,.5)}
+.atc-pil b{color:var(--azul);font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;display:block;margin-bottom:6px}
+.atc-pil span{font-size:.88rem;color:var(--cinza);line-height:1.4;display:block}
+.aviso{margin-top:16px;background:#fff;border-left:6px solid var(--azul);padding:16px 18px}
+.aviso b{display:block;color:var(--azul);font-size:1.02rem}
+.aviso span{font-size:.92rem;color:var(--cinza)}
+.checks li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--linha);font-size:.98rem}
+.checks li:last-child{border-bottom:0}
+.checks svg{flex:0 0 auto;width:20px;height:20px;color:var(--azul);margin-top:2px}
+.beneficios{margin-top:22px;background:var(--azul);color:#fff;padding:22px 24px}
+.beneficios h4{font-size:1.2rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+.beneficios li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:.96rem}
+.beneficios svg{flex:0 0 auto;width:18px;height:18px;margin-top:3px;color:var(--aco)}
+.sub-tit{font-weight:700;font-size:1.05rem;margin-bottom:6px}
+@media screen and (max-width:900px){.atc{grid-template-columns:1fr}.atc-pil{grid-template-columns:1fr}}
+
+/* ================================================================
+   EQUIPE
+   ================================================================ */
+.equipe{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,5vw,72px);align-items:center}
+.lider{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin-bottom:24px}
+.rosto{border-radius:50%;overflow:hidden;background:#0b2a50;box-shadow:0 0 0 4px var(--azul),0 0 0 5px rgba(255,255,255,.2)}
+.rosto img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.lider .rosto{width:150px;height:150px}
+.lider h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.lider .cargo{font-family:var(--cond);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.82rem;color:var(--aco);margin-top:8px}
+.cv{display:grid;grid-template-columns:1fr 1fr;gap:4px 26px}
+.cv li{font-size:.9rem;color:rgba(255,255,255,.82);padding:7px 0 7px 16px;position:relative;border-bottom:1px solid var(--linha-esc);line-height:1.4}
+.cv li::before{content:"";position:absolute;left:0;top:14px;width:6px;height:6px;background:var(--aco)}
+.membros{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.membros span{font-family:var(--cond);font-weight:600;letter-spacing:.08em;font-size:.76rem;padding:5px 9px;border:1px solid var(--linha-esc);color:rgba(255,255,255,.85)}
+.coord-tit{font-family:var(--cond);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.86rem;color:rgba(255,255,255,.7);margin-bottom:20px}
+.coords{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.coord{background:var(--noite-2);border:1px solid var(--linha-esc);padding:26px 20px;text-align:center}
+.coord .rosto{width:118px;height:118px;margin:0 auto 16px}
+.coord h4{font-size:1.2rem}
+.coord span{display:block;font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--aco);margin-top:6px}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha-esc);margin-top:18px;border:1px solid var(--linha-esc)}
+.mini-stats div{background:var(--noite);padding:14px 12px;text-align:center}
+.mini-stats b{display:block;font-size:1.6rem;line-height:1}
+.mini-stats span{font-family:var(--cond);letter-spacing:.1em;text-transform:uppercase;font-size:.7rem;color:rgba(255,255,255,.65)}
+.selo-fund{display:flex;align-items:center;gap:22px;background:var(--noite-2);border:1px solid var(--linha-esc);padding:24px 26px}
+.selo-fund img{width:120px;height:auto}
+.selo-fund b{display:block;font-size:2.6rem;line-height:1;margin:2px 0 6px}
+.selo-fund span{display:block;font-family:var(--cond);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:rgba(255,255,255,.7);line-height:1.4}
+.lider-num{border-left:4px solid var(--aco);padding-left:16px;margin-bottom:24px}
+.lider-num b{display:block;font-size:clamp(2.6rem,4vw,3.4rem);line-height:1;color:var(--aco)}
+.lider-num span{display:block;font-size:.92rem;color:rgba(255,255,255,.75);margin-top:6px;line-height:1.4}
+.sub-esc{font-family:var(--cond);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:rgba(255,255,255,.65);margin-bottom:10px}
+.atua{display:flex;flex-wrap:wrap;gap:6px}
+.atua span{font-size:.84rem;padding:6px 10px;background:rgba(98,176,255,.1);border:1px solid rgba(98,176,255,.3);color:#fff}
+.coord-h{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--noite);border:1px solid var(--linha-esc);padding:18px 20px;margin-top:22px}
+.coord-h .rosto{width:96px;height:96px}
+.coord-h h4{font-size:1.2rem}
+.coord-h span{display:block;font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--aco);margin-top:6px}
+@media screen and (max-width:1000px){.equipe{grid-template-columns:1fr}.cv{grid-template-columns:1fr}}
+@media screen and (max-width:560px){.lider{grid-template-columns:1fr}.coords{grid-template-columns:1fr}}
+
+/* ================================================================
+   ENCERRAMENTO
+   ================================================================ */
+#contato .foto{position:absolute;inset:0;background:url(fotos/ponte-barra-seca-1.webp) center/cover;z-index:0}
+#contato::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(4,22,45,.97) 0%,rgba(4,22,45,.88) 45%,rgba(4,22,45,.5) 100%)}
+.fim{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.fim h2{font-size:clamp(3rem,7vw,6rem);color:#fff;letter-spacing:-.03em}
+.fim .lead{margin-top:20px;max-width:560px}
+.canais{display:grid;gap:12px}
+.canal{display:flex;align-items:center;gap:16px;background:rgba(4,22,45,.7);border:1px solid var(--linha-esc);padding:16px 20px;color:#fff;transition:background .3s,border-color .3s,transform .3s var(--ease);backdrop-filter:blur(6px)}
+a.canal:hover{background:var(--azul);border-color:var(--azul);transform:translateX(6px)}
+.canal svg{width:26px;height:26px;flex:0 0 auto;color:var(--aco)}
+a.canal:hover svg{color:#fff}
+.canal small{display:block;font-family:var(--cond);font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;color:rgba(255,255,255,.6)}
+.canal b{font-size:1.15rem;font-weight:600}
+.assin{display:flex;align-items:center;gap:18px;margin-top:40px}
+.assin img{width:84px}
+.assin div{font-family:var(--cond);font-weight:600;letter-spacing:.16em;color:#fff;font-size:.95rem;line-height:1.4}
+.assin div span{display:block;opacity:.7;font-weight:500;font-size:.8rem}
+.rodape{position:absolute;left:var(--pad-x);right:var(--pad-x);bottom:20px;z-index:3;display:flex;justify-content:space-between;gap:20px;font-size:.76rem;color:rgba(255,255,255,.5);flex-wrap:wrap}
+@media screen and (max-width:900px){.fim{grid-template-columns:1fr}.rodape{position:static;margin-top:40px}}
+
+/* ================================================================
+   MODO APRESENTAÇÃO
+   ================================================================ */
+#dica{position:fixed;left:50%;top:22px;transform:translate(-50%,-160%);z-index:80;background:var(--azul);color:#fff;padding:10px 18px;font-size:.86rem;transition:transform .5s var(--ease);box-shadow:0 10px 30px -10px rgba(0,0,0,.6)}
+#dica.on{transform:translate(-50%,0)}
+#dica kbd{font-family:var(--cond);font-weight:600;border:1px solid rgba(255,255,255,.5);padding:1px 6px;margin:0 2px}
+body.apresentando #topo{opacity:0;pointer-events:none}
+body.apresentando{cursor:default}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}.traco{transform:none}
+  .slot .col i{transform:translateY(calc(var(--d) * -1em))!important}
+  .ponte-svg path{stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
+
+/* ================================================================
+   IMPRESSÃO / PDF — uma seção por página 16:9
+   ================================================================ */
+@media print{
+  @page{size:338.67mm 190.5mm;margin:0}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;animation:none!important;transition:none!important}
+  html,body{background:var(--noite)!important;font-size:15px}
+  #topo,#pilula,#barra-prog,#dica,#lb,.filtros,.rolar,.obra .ver{display:none!important}
+  section{height:190.5mm!important;min-height:0!important;page-break-after:always;break-after:page;page-break-inside:avoid;padding:44px 64px!important}
+  .rv{opacity:1!important;transform:none!important}
+  .traco{transform:none!important}
+  .slot .col i{transform:translateY(calc(var(--d) * -1em))!important}
+  .ponte-svg path{stroke-dashoffset:0!important}
+  .mapa #pm-RJ,.mapa #pm-ES{fill:var(--azul)!important}.mapa #pm-SP{fill:var(--azul)!important}
+  .tempo::after{width:100%!important}
+  #capa .foto,.divisor .foto{transform:none!important}
+  .split .foto-g img{transform:none!important}
+  .card:hover,.obra:hover img{transform:none!important}
+  .h2{font-size:2.5rem}
+  .cabeca{margin-bottom:20px}
+  .mosaico{height:470px}
+  .split .foto-g{height:520px}
+  .mapa svg{max-height:560px}
+  .area{min-height:205px}
+  .cards{gap:14px}
+  .card .tx{padding:10px 12px 12px}
+  .card p{font-size:.8rem}
+  .lado{grid-template-columns:.34fr 1fr}
+  #capa{padding-top:44px!important}
+  .capa-servicos{bottom:34px}
+  /* obras: a grade vira índice; o detalhe vai nas páginas seguintes */
+  #obras .obras{grid-template-columns:repeat(5,1fr);gap:10px}
+  #obras .obra{aspect-ratio:16/10}
+  #obras .obra .ot{padding:8px 10px}
+  #obras .obra .ot b{font-size:.82rem}
+  #obras .obra.esconde{display:block!important}
+  #obras .cabeca{margin-bottom:14px}
+  .obras-print{display:flex!important}
+  .equipe .cv li{padding:4px 0 4px 16px;font-size:.82rem}
+  .equipe .cv li::before{top:10px}
+  .lider .rosto{width:120px;height:120px}
+  .coord .rosto{width:96px;height:96px}
+  .coord{padding:18px 14px}
+  .stat{padding:18px}
+  section:not(#capa):not(#contato)::before{content:"";position:absolute;top:12px;right:20px;width:54px;height:54px;background:url(fotos/logo-40anos.png) center/contain no-repeat;z-index:6}
+  section.claro:not(#capa):not(#contato)::before,section.gelo:not(#capa):not(#contato)::before{background-image:url(fotos/logo-40anos-azul.png)}
+  .obras-print .op-topo{padding-right:56px}
+  .coord-h{margin-top:14px;padding:12px 16px}
+  .coord-h .rosto{width:78px;height:78px}
+  .selo-fund img{width:100px}
+  .integ{grid-template-rows:272px 168px}
+  .ig-info{padding:16px 20px;gap:8px}
+  .ig-info h3{font-size:1.12rem}
+  .ig-info p{font-size:.8rem;line-height:1.42}
+  .disc{gap:5px}
+  .disc div{font-size:.86rem}
+  .disc svg{width:24px;height:24px;padding:4px}
+  #integrados .cabeca{margin-bottom:16px}
+  .logos div{height:84px}
+  .logos.inst div{height:60px}
+  .inst-tit{margin:18px 0 8px}
+  .pessoa{padding:7px 10px}
+  .pessoa .rosto{width:46px;height:46px}
+  #coordenacao .lider-num{margin-bottom:14px}
+  /* grade de 8 cartões com cabeçalho: precisa caber em 720 px de altura */
+  #pontes{padding:30px 64px!important}
+  #pontes .h2{font-size:2.05rem}
+  #pontes .traco{margin-bottom:12px}
+  #pontes .olho{margin-bottom:10px}
+  #pontes .cabeca{margin-bottom:16px}
+  #pontes .card .ft{aspect-ratio:5/2}
+  #pontes .card h3{font-size:.95rem}
+}
+/* layout das páginas de obra (impressão) */
+.op-grade{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:18px;flex:1;min-height:0}
+.op{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr auto;gap:6px;min-height:0}
+.op .g{grid-row:1/3;overflow:hidden}
+.op .p{overflow:hidden}
+.op img{width:100%;height:100%;object-fit:cover}
+.op .t{grid-column:1/3;padding-top:4px}
+.op .t b{font-size:.98rem;display:block;line-height:1.2}
+.op .t span{font-family:var(--cond);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;color:var(--aco)}
+.op .t p{font-size:.76rem;color:rgba(255,255,255,.7);line-height:1.35;margin-top:2px}
+.op-topo{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.op-topo h2{font-size:1.7rem;color:#fff}
+.op-topo span{font-family:var(--cond);font-weight:600;letter-spacing:.16em;font-size:.8rem;color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+
+<div id="barra-prog"></div>
+<div id="dica">Modo apresentação: <kbd>→</kbd> <kbd>Espaço</kbd> avança · <kbd>←</kbd> volta · <kbd>Esc</kbd> sai</div>
+
+<header id="topo">
+  <a class="marca" href="#capa" aria-label="Grupo Encopetro — início">
+    <img class="logo40" src="fotos/logo-40anos.png" alt="Encopetro 40 anos">
+    <span><span class="m1">GRUPO ENCOPETRO</span><span class="m2" style="display:block">ENGENHARIA ESTRUTURAL</span></span>
+  </a>
+  <button class="btn-apr" id="btn-apr" type="button" aria-label="Iniciar modo apresentação">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
+    Apresentar
+  </button>
+</header>
+
+<div id="pilula" aria-hidden="true"><span id="pil-txt"></span><span class="barra" id="pil-barra"></span></div>
+
+<!-- ============================ CAPA ============================ -->
+<section id="capa" class="escuro" data-slide data-cap="00" data-nome="Capa">
+  <div class="foto"></div>
+  <div class="dentro">
+    <div class="capa-txt">
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>Portfólio 2026</b> · Encopetro e ESEEL Engenharia Estrutural</div>
+      <div class="selo40 rv d2">
+        <img src="fotos/logo-40anos.png" alt="40 anos">
+        <span class="liga"></span>
+        <span class="desde">DESDE<b>1986</b>RJ · ES · SP</span>
+      </div>
+      <h1 class="titulo rv d3">Engenharia estrutural feita para durar<span class="ponto">.</span></h1>
+      <p class="capa-lead rv d4">Especializados em projetos e análises estruturais, revisão, fiscalização e gerência de obras. Sede em Petrópolis (RJ) e filiais no Espírito Santo e em São Paulo, com atuação em todo o Brasil.</p>
+    </div>
+  </div>
+  <div class="rolar"><i></i>ROLE</div>
+  <div class="capa-servicos">
+    <span>Pontes e viadutos</span><span>Inspeção e perícia</span><span>Reforço estrutural</span><span>Contenções</span><span>Restauro e retrofit</span><span>Gerenciamento de obras</span>
+  </div>
+</section>
+
+<!-- ============================ 01 QUEM SOMOS ============================ -->
+<section id="sobre" class="claro" data-slide data-cap="01" data-nome="Quem somos">
+  <div class="dentro sobre">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(01)</b> Quem somos</div>
+      <h2 class="h2 rv d2">Quarenta anos calculando o que sustenta<span class="ponto">.</span></h2>
+      <div class="lead rv d3" style="margin-top:22px">
+        <p>A <strong>Encopetro</strong> é uma empresa de engenharia estrutural sediada em Petrópolis, no Rio de Janeiro, que atua em todo o Brasil há 40 anos. Com um corpo técnico experiente, é especializada em projetos e análise estrutural de obras novas ou existentes, pavimentos e pisos industriais, contenções, gerenciamento e fiscalização de obras em implantação ou ampliação, e consultoria em diversas áreas da engenharia civil.</p>
+        <p>A <strong>ESEEL Engenharia Estrutural</strong>, com sede em Vitória, no Espírito Santo, tornou-se parte do grupo, consolidando e ampliando o trabalho — com atendimento voltado ao Espírito Santo, nas mesmas áreas e com a mesma qualidade.</p>
+      </div>
+      <div class="sedes rv d4">
+        <div class="sede"><div class="n">RJ · SEDE</div><h4>Encopetro</h4><p>Petrópolis</p></div>
+        <div class="sede"><div class="n">ES · FILIAL</div><h4>ESEEL</h4><p>Vitória</p></div>
+        <div class="sede"><div class="n">SP · FILIAL</div><h4>Encopetro</h4><p>São Paulo</p></div>
+      </div>
+    </div>
+    <div class="mosaico rv d3">
+      <figure class="f1"><img src="fotos/oae-lagoa-aviso.webp" alt="Ponte sobre a Lagoa do Aviso, Linhares (ES)"></figure>
+      <figure class="f2"><img src="fotos/bristol-1.webp" alt="Bristol Vista Azul Hotel, Pedra Azul (ES)"></figure>
+      <div class="tag40"><b>40</b>ANOS DE ENGENHARIA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NÚMEROS ============================ -->
+<section id="numeros" class="escuro" data-slide data-cap="01" data-nome="Quem somos">
+  <div class="dentro">
+    <div class="num-grid">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(01)</b> Quem somos · Trajetória</div>
+        <div class="gigante rv d2"><span class="slot" data-v="2.500">2.500</span><span class="mais">+</span></div>
+        <p class="gig-leg rv d3">projetos executados sob responsabilidade técnica do grupo, de pequenas pontes a grandes viadutos.</p>
+        <p class="gig-sub rv d4">Pontes, viadutos, edificações, contenções, pisos industriais, restauro e retrofit.</p>
+      </div>
+      <svg class="ponte-svg" id="ponte-svg" viewBox="0 0 600 330" aria-hidden="true">
+        <path pathLength="1" class="forte" d="M30 230 H570"/>
+        <path pathLength="1" d="M30 242 H570"/>
+        <path pathLength="1" class="forte" d="M300 30 L284 300"/>
+        <path pathLength="1" class="forte" d="M300 30 L316 300"/>
+        <path pathLength="1" d="M288 150 H312"/>
+        <path pathLength="1" d="M296 46 L60 230"/><path pathLength="1" d="M297 56 L100 230"/><path pathLength="1" d="M297 66 L140 230"/><path pathLength="1" d="M298 76 L180 230"/><path pathLength="1" d="M298 86 L220 230"/><path pathLength="1" d="M299 96 L260 230"/>
+        <path pathLength="1" d="M304 46 L540 230"/><path pathLength="1" d="M303 56 L500 230"/><path pathLength="1" d="M303 66 L460 230"/><path pathLength="1" d="M302 76 L420 230"/><path pathLength="1" d="M302 86 L380 230"/><path pathLength="1" d="M301 96 L340 230"/>
+        <path pathLength="1" d="M40 242 V300"/><path pathLength="1" d="M560 242 V300"/>
+        <path pathLength="1" d="M10 300 Q60 292 110 300 T210 300 T310 300 T410 300 T510 300 T600 300"/>
+        <path pathLength="1" d="M60 314 Q110 306 160 314 T260 314 T360 314 T460 314 T560 314"/>
+      </svg>
+    </div>
+    <div class="stats">
+      <div class="stat rv d1"><div class="v"><span class="slot" data-v="40">40</span></div><div class="r">anos de mercado<br>desde 1986</div></div>
+      <div class="stat rv d2"><div class="v"><small>+</small><span class="slot" data-v="3.000">3.000</span></div><div class="r">inspeções<br>e perícias</div></div>
+      <div class="stat rv d3"><div class="v"><small>+</small><span class="slot" data-v="780">780</span></div><div class="r">pontes e viadutos mapeados<br>(650+ no ES · 130+ no RJ)</div></div>
+      <div class="stat rv d4"><div class="v"><small>+</small><span class="slot" data-v="90">90</span></div><div class="r">artigos e<br>publicações técnicas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRESENÇA ============================ -->
+<section id="presenca" class="claro" data-slide data-cap="01" data-nome="Quem somos">
+  <div class="dentro pres">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(01)</b> Quem somos · Presença</div>
+      <h2 class="h2 rv d2">Atuação em todo o Brasil, com raiz no Sudeste<span class="ponto">.</span></h2>
+      <div class="ufs rv d3">
+        <div class="uf"><b>RJ</b><span>Sede · Petrópolis</span></div>
+        <div class="uf"><b>ES</b><span>Filial · ESEEL, Vitória</span></div>
+        <div class="uf"><b>SP</b><span>Filial</span></div>
+      </div>
+      <div class="rv d4">
+        <div class="cid-tit">Cidades com projetos neste portfólio</div>
+        <div class="cidades">
+          <span>Rio de Janeiro</span><span>Petrópolis</span><span>Areal</span><span>Vassouras</span>
+          <span>Vitória</span><span>Vila Velha</span><span>Serra</span><span>Colatina</span><span>Linhares</span>
+          <span>Águia Branca</span><span>São Roque do Canaã</span><span>Itaguaçu</span><span>Ibiraçu</span>
+          <span>Rio Novo do Sul</span><span>Domingos Martins</span><span>Nova Almeida</span>
+        </div>
+      </div>
+    </div>
+    <div class="mapa rv d2" id="mapa"><!--MAPA--></div>
+  </div>
+</section>
+
+<!-- ============================ 02 O QUE FAZEMOS ============================ -->
+<section class="divisor escuro" data-slide data-cap="02" data-nome="O que fazemos">
+  <div class="foto" style="background-image:url(fotos/alto-padrao-3.webp)"></div>
+  <div class="dentro">
+    <div class="div-num rv"><span class="slot" data-v="02">02</span></div>
+    <h2 class="rv d1">O que fazemos<span class="ponto">.</span></h2>
+    <p class="lead rv d2">Do cálculo à fiscalização: projeto, análise, inspeção e gerência — em obras novas e em estruturas que já têm décadas de uso.</p>
+  </div>
+</section>
+
+<section id="areas" class="gelo" data-slide data-cap="02" data-nome="O que fazemos">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(02)</b> Principais áreas de atuação</div>
+        <h2 class="h2 rv d2">Seis frentes, um mesmo rigor técnico<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Cada frente nasce da mesma base: engenharia estrutural feita por quem calcula, inspeciona e acompanha a obra até o fim.</p>
+    </div>
+    <div class="areas">
+      <div class="area rv d1"><img src="fotos/alto-padrao-1.webp" alt=""><div class="n">01</div><h3>Reforço estrutural</h3><p>Soluções de recuperação e reforço que garantem a segurança e a estabilidade das construções.</p></div>
+      <div class="area rv d2"><img src="fotos/ponte-barra-seca-2.webp" alt=""><div class="n">02</div><h3>Pontes e viadutos</h3><p>Projetos com soluções que atendem às necessidades específicas de cada obra e de cada lugar.</p></div>
+      <div class="area rv d3"><img src="fotos/br259-colatina-1.webp" alt=""><div class="n">03</div><h3>Estabilização e contenção</h3><p>Segurança e estabilidade de taludes, encostas e áreas de risco.</p></div>
+      <div class="area rv d4"><img src="fotos/reservatorio-4.webp" alt=""><div class="n">04</div><h3>Consultoria</h3><p>Apoio técnico na tomada de decisões importantes, com foco em segurança e qualidade.</p></div>
+      <div class="area rv d5"><img src="fotos/br101-4.webp" alt=""><div class="n">05</div><h3>Gerenciamento de obras</h3><p>Gestão com foco em qualidade, prazo e orçamento, do início à entrega.</p></div>
+      <div class="area rv d6"><img src="fotos/biblioteca-franciscana.webp" alt=""><div class="n">06</div><h3>Restauro e retrofit</h3><p>Preservação da história e das características arquitetônicas, com soluções modernas.</p></div>
+    </div>
+    <div class="faixa rv d4"><b>+ de 2.500 projetos executados</b><span>Projetos · Inspeções · Perícias · Fiscalização</span></div>
+  </div>
+</section>
+
+<section id="integrados" class="claro" data-slide data-cap="02" data-nome="O que fazemos">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(02)</b> Projetos integrados</div>
+        <h2 class="h2 rv d2">Arquitetura, estruturas e instalações<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Além do projeto estrutural, o grupo entrega os projetos complementares — soluções técnicas que conectam cada etapa do projeto, com precisão em cada disciplina.</p>
+    </div>
+    <div class="integ">
+      <figure class="ig ig-arq rv d1"><img src="fotos/int-arquitetura.webp" alt="Perspectiva ilustrativa de ginásio poliesportivo"><figcaption>Arquitetura</figcaption><small>Perspectiva ilustrativa</small></figure>
+      <div class="ig-info rv d2">
+        <h3>Um projeto, todas as disciplinas</h3>
+        <p>Os projetos arquitetônicos são desenvolvidos em parceria com a <strong>Kyzzy Arquitetura</strong>, sob coordenação da Arq. Ana Kyzzy Fachetti, D.Sc. — unindo a precisão da engenharia estrutural à funcionalidade da arquitetura, do conceito à execução.</p>
+        <div class="disc">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>Elétrica</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>Hidrossanitária</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s4 5 4 8a4 4 0 0 1-8 0c0-3 4-8 4-8z"/><path d="M3 17c2 0 2 1.5 4.5 1.5S10 17 12 17s2 1.5 4.5 1.5S19 17 21 17M3 21c2 0 2 1.5 4.5 1.5"/></svg>Drenagem</div>
+        </div>
+      </div>
+      <figure class="ig rv d3"><img src="fotos/int-planta.webp" alt="Planta baixa com acessibilidade"><figcaption>Planta e acessibilidade</figcaption></figure>
+      <figure class="ig rv d4"><img src="fotos/int-estruturas.webp" alt="Modelo estrutural da cobertura"><figcaption>Estruturas</figcaption></figure>
+      <figure class="ig rv d5"><img src="fotos/int-instalacoes.webp" alt="Modelo das instalações"><figcaption>Instalações</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="gelo" data-slide data-cap="02" data-nome="O que fazemos">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(02)</b> Serviços</div>
+        <h2 class="h2 rv d2">Soluções estruturais completas<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Do projeto à perícia: tudo o que o grupo oferece, organizado por etapa.</p>
+    </div>
+    <div class="serv">
+      <div class="sv rv d1"><div class="sv-n">01</div><h3>Projeto</h3><div class="sv-l"><span>Pontes</span><span>Edificações</span><span>Galpões</span><span>Coberturas</span><span>Bases</span><span>Quadras</span><span>Heliportos</span><span>Pisos industriais</span><span>Pavimentação</span><span>Contenção</span><span>Estabilização</span><span>Drenagem</span><span>Fachadas</span><span>Arquitetura</span></div></div>
+      <div class="sv rv d2"><div class="sv-n">02</div><h3>Diagnóstico</h3><div class="sv-l"><span>Inspeções</span><span>Inspeção especial estrutural</span><span>Perícia</span><span>Ensaios (como esclerometria)</span><span>Modelagem</span><span>Revisão de projetos</span></div></div>
+      <div class="sv rv d3"><div class="sv-n">03</div><h3>Intervenção</h3><div class="sv-l"><span>Recuperação</span><span>Reforço</span><span>Restauração</span></div></div>
+      <div class="sv rv d4"><div class="sv-n">04</div><h3>Gestão e conhecimento</h3><div class="sv-l"><span>Gerenciamento de obras</span><span>Fiscalização</span><span>Consultoria</span><span>Cursos</span><span>Livros e publicações</span></div></div>
+    </div>
+    <div class="softwares rv d5"><span>Análise e modelagem com</span><b>SAP 2000</b><b>Cype Cad</b><b>TQS</b><b>Eberick</b></div>
+  </div>
+</section>
+
+<!-- ============================ 03 PONTES ============================ -->
+<section class="divisor escuro" data-slide data-cap="03" data-nome="Pontes e viadutos">
+  <div class="foto" style="background-image:url(fotos/ponte-barra-seca-1.webp)"></div>
+  <div class="dentro">
+    <div class="div-num rv"><span class="slot" data-v="03">03</span></div>
+    <h2 class="rv d1">Pontes e viadutos<span class="ponto">.</span></h2>
+    <p class="lead rv d2">Obras de arte especiais: projeto, inspeção, mapeamento de danos e reforço — de pontes históricas tombadas a grandes corredores expressos.</p>
+  </div>
+</section>
+
+<section id="pontes-intro" class="escuro-2" data-slide data-cap="03" data-nome="Pontes e viadutos">
+  <div class="dentro split">
+    <div class="foto-g rv" id="foto-pontes"><img src="fotos/guriri-1.webp" alt="Fiscalização técnica da Ponte de Guriri (ES)"><span class="leg">Ponte de Guriri · ES</span></div>
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(03)</b> Obras de arte especiais</div>
+      <h2 class="h2 rv d2">Estruturas que se harmonizam com o entorno<span class="ponto">.</span></h2>
+      <div class="lead rv d3" style="margin-top:22px">
+        <p>Destacamo-nos na elaboração de projetos de pontes e viadutos, com forte presença no Sudeste. A equipe projeta estruturas que combinam inovação, segurança e sustentabilidade, atendendo às necessidades de cada localidade — com precisão técnica e cumprimento das normas de segurança em cada projeto.</p>
+        <p>O portfólio vai de pequenas pontes a grandes viadutos, sempre com atenção aos detalhes técnicos e à integração com o meio ambiente: não apenas um projeto funcional, mas uma obra que contribui para a infraestrutura regional.</p>
+      </div>
+      <div class="pilares rv d4"><div>Inovação<small>soluções sob medida para cada vão</small></div><div>Segurança<small>normas cumpridas em cada etapa</small></div><div>Durabilidade<small>soluções eficientes e duradouras</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="pontes" class="gelo" data-slide data-cap="03" data-nome="Pontes e viadutos">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(03)</b> Projetos de pontes</div>
+        <h2 class="h2 rv d2">Do arco metálico ao concreto armado<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Projetos novos, alargamentos e reforços — incluindo uma ponte metálica de 1860, tombada pelo IPHAN.</p>
+    </div>
+    <div class="cards">
+      <article class="card rv d1"><div class="ft"><img src="fotos/oae-marista.webp" alt=""><span class="met">vão de 43,80 m</span></div><div class="tx"><span class="loc">Colatina – ES</span><h3>Ponte sobre o Rio Santa Maria (Marista)</h3><p>Reforço e alargamento, integrando o arco metálico existente a um novo arco, com duas pistas.</p></div></article>
+      <article class="card rv d2"><div class="ft"><img src="fotos/oae-sao-jose-26.webp" alt=""><span class="met">26 m · vão único</span></div><div class="tx"><span class="loc">Águia Branca – ES</span><h3>Ponte sobre o Córrego São José</h3><p>Ponte estaiada com arco metálico de sustentação dos tabuleiros.</p></div></article>
+      <article class="card rv d3"><div class="ft"><img src="fotos/oae-sao-roque.webp" alt=""><span class="met">75 m · pista de 11,3 m</span></div><div class="tx"><span class="loc">São Roque do Canaã – ES</span><h3>Ponte sobre o Rio Santa Maria</h3><p>Reforço e modificação estrutural para alargamento, com nova pista.</p></div></article>
+      <article class="card rv d4"><div class="ft"><img src="fotos/oae-sao-jose-52.webp" alt=""><span class="met">52 m · vão central de 40 m</span></div><div class="tx"><span class="loc">Águia Branca – ES</span><h3>Ponte sobre o Córrego São José</h3><p>Ponte estaiada com arco metálico de sustentação dos tabuleiros.</p></div></article>
+      <article class="card rv d5"><div class="ft"><img src="fotos/oae-lagoa-aviso.webp" alt=""><span class="met">106 m · 4 vãos de 26,5 m</span></div><div class="tx"><span class="loc">Linhares – ES</span><h3>Ponte sobre a Lagoa do Aviso</h3><p>Projeto, fiscalização e gerenciamento de ponte urbana, incluindo fundações profundas.</p></div></article>
+      <article class="card rv d6"><div class="ft"><img src="fotos/oae-ponte-vermelha.webp" alt=""><span class="met">construída em 1860 · IPHAN</span></div><div class="tx"><span class="loc">Areal – RJ</span><h3>Ponte Vermelha</h3><p>Projeto e fiscalização do reforço de ponte metálica sobre o Rio Piabanha.</p></div></article>
+      <article class="card rv d7"><div class="ft"><img src="fotos/oae-costa-brava.webp" alt=""><span class="met">protensão externa</span></div><div class="tx"><span class="loc">Joá – RJ</span><h3>Passarela do Costa Brava Clube</h3><p>Reforço de passarela de 1960 após sinistro em 2019 que a deixou sem condições de segurança.</p></div></article>
+      <article class="card rv d8"><div class="ft"><img src="fotos/oae-santa-joana.webp" alt=""><span class="met">20 m · arcos de 5,90 m</span></div><div class="tx"><span class="loc">Itaguaçu – ES</span><h3>Ponte sobre o Rio Santa Joana</h3><p>Ponte em arco de concreto armado, vão único, com dois arcos.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="inspecao-oae" class="escuro" data-slide data-cap="03" data-nome="Pontes e viadutos">
+  <div class="dentro lado">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(03)</b> Inspeção de pontes e viadutos</div>
+      <h2 class="h2 rv d2">Diagnóstico antes da intervenção<span class="ponto">.</span></h2>
+      <p class="lead rv d3" style="margin-top:18px">Mapeamento de danos, ensaios de caracterização, perícia e avaliação de capacidade de carga.</p>
+      <div class="destaque-num rv d4">
+        <div><b><small>+</small><span class="slot" data-v="650">650</span></b><span>pontes e viadutos com danos mapeados no Espírito Santo</span></div>
+        <div><b><small>+</small><span class="slot" data-v="130">130</span></b><span>estruturas similares inspecionadas no Rio de Janeiro</span></div>
+      </div>
+    </div>
+    <div class="cards">
+      <article class="card rv d1"><div class="ft"><img src="fotos/joa-2.webp" alt=""><span class="met">consultoria</span></div><div class="tx"><span class="loc">Rio de Janeiro – RJ</span><h3>Viaduto do Joá</h3><p>Elevado das Bandeiras, ligação entre as zonas Sul e Oeste. Recuperação estrutural.</p></div></article>
+      <article class="card rv d2"><div class="ft"><img src="fotos/insp-tim-maia.webp" alt=""><span class="met">perícia técnica</span></div><div class="tx"><span class="loc">São Conrado – RJ</span><h3>Ciclovia Tim Maia</h3><p>9 km à beira do Atlântico, do Leblon à Barra da Tijuca.</p></div></article>
+      <article class="card rv d3"><div class="ft"><img src="fotos/insp-desengano.webp" alt=""><span class="met">inaugurada em 1865</span></div><div class="tx"><span class="loc">Vassouras – RJ</span><h3>Ponte do Desengano</h3><p>Primeira ponte de ferro sobre o Paraíba do Sul. Consultoria e ensaios.</p></div></article>
+      <article class="card rv d4"><div class="ft"><img src="fotos/insp-flodoaldo.webp" alt=""><span class="met">93,90 m</span></div><div class="tx"><span class="loc">Nova Almeida – ES</span><h3>Ponte Flodoado Borges Miguel</h3><p>Recuperação estrutural e avaliação de capacidade de carga.</p></div></article>
+      <article class="card rv d5"><div class="ft"><img src="fotos/insp-florentino.webp" alt=""><span class="met">chegou a Vitória em 1927</span></div><div class="tx"><span class="loc">Vitória – ES</span><h3>Ponte Florentino Ávidos</h3><p>Ponte de aço feita na Alemanha (Cinco Pontes). Inspeção e recuperação.</p></div></article>
+      <article class="card rv d6"><div class="ft"><img src="fotos/insp-transolimpica.webp" alt=""><span class="met">mapeamento de danos</span></div><div class="tx"><span class="loc">Rio de Janeiro – RJ</span><h3>Corredor Transolímpica</h3><p>Viadutos do Elevado Duque de Caxias. Inspeção rotineira.</p></div></article>
+      <article class="card rv d7"><div class="ft"><img src="fotos/insp-mapeadas.webp" alt=""><span class="met">780+ estruturas</span></div><div class="tx"><span class="loc">ES e RJ</span><h3>Pontes mapeadas</h3><p>Mapeamento de danos e inspeções estruturais nos dois estados.</p></div></article>
+      <article class="card rv d8"><div class="ft"><img src="fotos/insp-oswaldo-cruz.webp" alt=""><span class="met">capacidade de carga</span></div><div class="tx"><span class="loc">Av. Brasil – RJ</span><h3>Ponte Oswaldo Cruz</h3><p>Linha Amarela, na Maré. Inspeção e ensaios para modernização.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 04 EDIFICAÇÕES ============================ -->
+<section class="divisor escuro" data-slide data-cap="04" data-nome="Edificações">
+  <div class="foto" style="background-image:url(fotos/ucp-1.webp)"></div>
+  <div class="dentro">
+    <div class="div-num rv"><span class="slot" data-v="04">04</span></div>
+    <h2 class="rv d1">Edificações<span class="ponto">.</span></h2>
+    <p class="lead rv d2">Inspeções e projetos estruturais em edifícios residenciais, comerciais, industriais e institucionais.</p>
+  </div>
+</section>
+
+<section id="edificacoes" class="claro" data-slide data-cap="04" data-nome="Edificações">
+  <div class="dentro lado">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(04)</b> Inspeção estrutural</div>
+      <h2 class="h2 rv d2">Segurança medida, não suposta<span class="ponto">.</span></h2>
+      <p class="lead rv d3" style="margin-top:18px">Inspeções meticulosas e baseadas em tecnologia — termografia, modelagem e ensaios — para identificar riscos e recomendar manutenção ou reforço.</p>
+      <div class="destaque-num rv d4">
+        <div><b><span class="slot" data-v="252.633">252.633</span></b><span>m² inspecionados no conjunto da Cidade Universitária da UFRJ</span></div>
+      </div>
+    </div>
+    <div class="cards">
+      <article class="card rv d1"><div class="ft"><img src="fotos/ed-grand-parc.webp" alt=""><span class="met">3 torres · até 34 andares</span></div><div class="tx"><span class="loc">Vitória – ES</span><h3>Grand Parc Residencial Resort</h3><p>Análise de integridade e segurança das torres.</p></div></article>
+      <article class="card rv d2"><div class="ft"><img src="fotos/ed-vera-cruz.webp" alt=""><span class="met">4 torres · 84 aptos</span></div><div class="tx"><span class="loc">Vila Velha – ES</span><h3>Condomínio Vera Cruz</h3><p>Quatro torres de 18 andares. Integridade e segurança.</p></div></article>
+      <article class="card rv d3"><div class="ft"><img src="fotos/bristol-3.webp" alt=""><span class="met">abandonada há ~20 anos</span></div><div class="tx"><span class="loc">Domingos Martins – ES</span><h3>Bristol Vista Azul Hotel</h3><p>Avaliação de danos, integridade e segurança da estrutura.</p></div></article>
+      <article class="card rv d4"><div class="ft"><img src="fotos/ed-sunset.webp" alt=""><span class="met">27 andares · 126 aptos</span></div><div class="tx"><span class="loc">Vila Velha – ES</span><h3>Condomínio Sunset</h3><p>Análise de integridade e segurança do edifício.</p></div></article>
+      <article class="card rv d5"><div class="ft"><img src="fotos/grand-hyatt.webp" alt=""><span class="met">436 quartos</span></div><div class="tx"><span class="loc">Barra da Tijuca – RJ</span><h3>Grand Hyatt Rio de Janeiro</h3><p>Integridade e segurança da estrutura e das fachadas.</p></div></article>
+      <article class="card rv d6"><div class="ft"><img src="fotos/ed-ufrj.webp" alt=""><span class="met">252.633 m²</span></div><div class="tx"><span class="loc">Cidade Universitária – RJ</span><h3>UFRJ</h3><p>Blocos A a I e I-200, além das áreas de comunicação.</p></div></article>
+      <article class="card rv d7"><div class="ft"><img src="fotos/ed-dom-pedro.webp" alt=""><span class="met">inaugurado em 1858</span></div><div class="tx"><span class="loc">Rio de Janeiro – RJ</span><h3>Edifício Dom Pedro II</h3><p>Central do Brasil, com o maior relógio de quatro faces do continente.</p></div></article>
+      <article class="card rv d8"><div class="ft"><img src="fotos/ed-san-vicenzo.webp" alt=""><span class="met">4.500 m²</span></div><div class="tx"><span class="loc">Petrópolis – RJ</span><h3>San Vicenzo Residencial</h3><p>Estrutura parada há 25 anos: análise e projeto de recuperação e reforço.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="projetos-ed" class="gelo" data-slide data-cap="04" data-nome="Edificações">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(04)</b> Projetos estruturais de edificações</div>
+        <h2 class="h2 rv d2">Do edifício histórico ao galpão logístico<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Vistorias, ensaios de caracterização, projetos de recuperação e reforço, lajes protendidas e revisão de projeto.</p>
+    </div>
+    <div class="cards c4l">
+      <article class="card rv d1"><div class="ft"><img src="fotos/ed-epv.webp" alt=""><span class="met">3 blocos</span></div><div class="tx"><span class="loc">Urca – RJ</span><h3>EPV – Edifício Praia Vermelha</h3><p>Vistorias técnicas, ensaios de caracterização e projeto de recuperação e reforço estrutural para um conjunto de três blocos.</p></div></article>
+      <article class="card rv d2"><div class="ft"><img src="fotos/ed-sesc.webp" alt=""><span class="met">prédio principal</span></div><div class="tx"><span class="loc">Petrópolis – RJ</span><h3>Hotel Sesc Nogueira</h3><p>Análise de integridade e segurança, com projeto de recuperação e reforço estrutural do prédio principal.</p></div></article>
+      <article class="card rv d3"><div class="ft"><img src="fotos/pisos-1.webp" alt=""><span class="met">5.800 m² · 5 t/m²</span></div><div class="tx"><span class="loc">Serra – ES</span><h3>Pisos industriais para galpões</h3><p>Laje de piso protendida com aproximadamente 5.800 m² e capacidade de carga de 5 t/m².</p></div></article>
+      <article class="card rv d4"><div class="ft"><img src="fotos/ed-galpao.webp" alt=""><span class="met">3.600 m²</span></div><div class="tx"><span class="loc">Petrópolis – RJ</span><h3>Galpão de distribuição</h3><p>Revisão e desenvolvimento de projetos estruturais de galpão para centro de distribuição, com obras civis.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 05 CONTENÇÃO E RESTAURO ============================ -->
+<section class="divisor escuro" data-slide data-cap="05" data-nome="Contenção e restauro">
+  <div class="foto" style="background-image:url(fotos/br259-colatina-2.webp)"></div>
+  <div class="dentro">
+    <div class="div-num rv"><span class="slot" data-v="05">05</span></div>
+    <h2 class="rv d1">Contenção, reforço e restauro<span class="ponto">.</span></h2>
+    <p class="lead rv d2">Encostas estabilizadas, estruturas recuperadas e patrimônio histórico preservado.</p>
+  </div>
+</section>
+
+<section id="contencao" class="gelo" data-slide data-cap="05" data-nome="Contenção e restauro">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(05)</b> Contenção e estabilização de encostas</div>
+        <h2 class="h2 rv d2">Taludes seguros, em obra e em emergência<span class="ponto">.</span></h2>
+      </div>
+      <div>
+        <p class="lead rv d3">Projetos e gerenciamento de contenções em rodovias e zonas urbanas, inclusive obras emergenciais.</p>
+        <div class="tecnicas rv d4"><span>Muros de gabião</span><span>Concreto ciclópico</span><span>Concreto armado</span><span>Grelhas atirantadas</span><span>Cortinas atirantadas</span><span>Solo grampeado</span><span>Drenagem</span></div>
+      </div>
+    </div>
+    <div class="cards c4l">
+      <article class="card rv d1"><div class="ft"><img src="fotos/ct-rio-novo.webp" alt=""><span class="met">talude rochoso</span></div><div class="tx"><span class="loc">Rio Novo do Sul – ES</span><h3>Contenção e estabilização rochosa</h3><p>Muros de gabião, concreto ciclópico e armado, grelhas, cortinas atirantadas e solo grampeado.</p></div></article>
+      <article class="card rv d2"><div class="ft"><img src="fotos/ct-br259.webp" alt=""><span class="met">obra emergencial</span></div><div class="tx"><span class="loc">BR-259 – ES</span><h3>Pavimentação, contenção e estabilização</h3><p>Projeto e gerenciamento de obras emergenciais em talude rochoso, maciços de solo e pavimento.</p></div></article>
+      <article class="card rv d3"><div class="ft"><img src="fotos/ct-escalada.webp" alt=""><span class="met">até 15 m de altura</span></div><div class="tx"><span class="loc">Botafogo – RJ</span><h3>Contenção do Edifício Escalada</h3><p>Projeto de reforço por grelha atirantada em contenção existente.</p></div></article>
+      <article class="card rv d4"><div class="ft"><img src="fotos/ct-getulio.webp" alt=""><span class="met">zona urbana</span></div><div class="tx"><span class="loc">Ibiraçu – ES</span><h3>Avenida Getúlio Vargas</h3><p>Estabilização e contenção de talude com drenagem, solo grampeado e cortina atirantada.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="restauro" class="claro" data-slide data-cap="05" data-nome="Contenção e restauro">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(05)</b> Recuperação, reforço e restauro</div>
+        <h2 class="h2 rv d2">Monumentos que pedem precisão<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Ensaios, laudos e projetos de restauro em estruturas que fazem parte da história do Rio de Janeiro e de Petrópolis.</p>
+    </div>
+    <div class="cards c4l">
+      <article class="card rv d1"><div class="ft"><img src="fotos/rs-cristo.webp" alt=""><span class="met">ensaios no concreto</span></div><div class="tx"><span class="loc">Alto da Boa Vista – RJ</span><h3>Cristo Redentor</h3><p>Consultoria, inspeção estrutural e ensaios de caracterização do concreto da estrutura interna da estátua.</p></div></article>
+      <article class="card rv d2"><div class="ft"><img src="fotos/rs-catedral.webp" alt=""><span class="met">responsabilidade técnica</span></div><div class="tx"><span class="loc">Petrópolis – RJ</span><h3>Catedral São Pedro de Alcântara</h3><p>Responsabilidade técnica e projetos da obra de recuperação, reforço e restauro da Catedral.</p></div></article>
+      <article class="card rv d3"><div class="ft"><img src="fotos/rs-fluminense.webp" alt=""><span class="met">laudo técnico</span></div><div class="tx"><span class="loc">Laranjeiras – RJ</span><h3>Arquibancadas do Fluminense</h3><p>Projeto de recuperação e reforço, ensaios de caracterização e laudo técnico do Estádio Manoel Schwartz.</p></div></article>
+      <article class="card rv d4"><div class="ft"><img src="fotos/biblioteca-franciscana.webp" alt=""><span class="met">edifício de 100 anos</span></div><div class="tx"><span class="loc">Petrópolis – RJ</span><h3>Biblioteca do Instituto Teológico Franciscano</h3><p>Projeto e gerenciamento da obra de restauro do edifício dos franciscanos de Petrópolis.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="patrimonio" class="escuro" data-slide data-cap="05" data-nome="Contenção e restauro">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(05)</b> Patrimônio histórico</div>
+        <h2 class="h2 rv d2">Estruturas antigas, intervenções recentes<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Os anos abaixo são de construção de cada estrutura — não do trabalho do grupo. As inspeções, os reforços e as consultorias foram feitos em anos recentes, para que essas estruturas continuem em uso com segurança.</p>
+    </div>
+    <div class="tempo" id="tempo">
+      <div class="marco rv d1"><div class="ft"><img src="fotos/dom-pedro-2.webp" alt=""></div><div class="quando">Inaugurado em</div><div class="ano">1858</div><h4>Edifício Dom Pedro II</h4><p>Central do Brasil, RJ. <b>Trabalho do grupo:</b> análise de integridade e segurança da estrutura.</p></div>
+      <div class="marco rv d2"><div class="ft"><img src="fotos/oae-ponte-vermelha.webp" alt=""></div><div class="quando">Construída em</div><div class="ano">1860</div><h4>Ponte Vermelha</h4><p>Areal (RJ), tombada pelo IPHAN. <b>Trabalho do grupo:</b> projeto e fiscalização do reforço.</p></div>
+      <div class="marco rv d3"><div class="ft"><img src="fotos/vassouras-1.webp" alt=""></div><div class="quando">Inaugurada em</div><div class="ano">1865</div><h4>Ponte do Desengano</h4><p>Vassouras (RJ). <b>Trabalho do grupo:</b> consultoria e ensaios de caracterização.</p></div>
+      <div class="marco rv d4"><div class="ft"><img src="fotos/insp-florentino.webp" alt=""></div><div class="quando">Chegou a Vitória em</div><div class="ano">1927</div><h4>Ponte Florentino Ávidos</h4><p>Vitória (ES), aço feito na Alemanha. <b>Trabalho do grupo:</b> inspeção, consultoria e recuperação.</p></div>
+      <div class="marco rv d5"><div class="ft"><img src="fotos/oae-costa-brava.webp" alt=""></div><div class="quando">Inaugurada em</div><div class="ano">1960</div><h4>Passarela do Costa Brava</h4><p>Joá (RJ). <b>Trabalho do grupo:</b> reforço com protensão externa após o sinistro de 2019.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 06 PROJETOS E RECUPERAÇÕES ============================ -->
+<section class="divisor escuro" data-slide data-cap="06" data-nome="Projetos e recuperações">
+  <div class="foto" style="background-image:url(fotos/tim-maia-1.webp)"></div>
+  <div class="dentro">
+    <div class="div-num rv"><span class="slot" data-v="06">06</span></div>
+    <h2 class="rv d1">Projetos e recuperações<span class="ponto">.</span></h2>
+    <p class="lead rv d2">Vinte projetos e recuperações em destaque, com o registro fotográfico de cada etapa — do projeto à fiscalização.</p>
+  </div>
+</section>
+
+<section id="obras" class="escuro-2" data-slide data-cap="06" data-nome="Projetos e recuperações">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(06)</b> Registro fotográfico</div>
+        <h2 class="h2 rv d2">Engenharia vista de perto<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Clique em um projeto para ver todas as fotos. Use os filtros para navegar por tipo de estrutura.</p>
+    </div>
+    <div class="filtros rv d3" role="group" aria-label="Filtrar projetos">
+      <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+      <button type="button" data-f="pontes" aria-pressed="false">Pontes e viadutos</button>
+      <button type="button" data-f="edif" aria-pressed="false">Edificações</button>
+      <button type="button" data-f="ind" aria-pressed="false">Industrial e infraestrutura</button>
+      <button type="button" data-f="cont" aria-pressed="false">Contenção</button>
+    </div>
+    <div class="obras" id="grade-obras"></div>
+  </div>
+</section>
+<div id="obras-print-ancora"></div>
+
+<section id="clientes" class="claro" data-slide data-cap="06" data-nome="Clientes e instituições">
+  <div class="dentro">
+    <div class="cabeca">
+      <div>
+        <div class="traco rv"></div>
+        <div class="olho rv d1"><b>(06)</b> Clientes e instituições</div>
+        <h2 class="h2 rv d2">Quem já confiou no grupo<span class="ponto">.</span></h2>
+      </div>
+      <p class="lead rv d3">Órgãos públicos, universidades, construtoras e indústria — do DNIT à Prefeitura de Vitória.</p>
+    </div>
+    <div class="logos rv d2">
+      <div><img src="fotos/cli-dnit.webp" alt="DNIT"></div>
+      <div><img src="fotos/cli-der-es.webp" alt="DER-ES"></div>
+      <div><img src="fotos/cli-gov-es.webp" alt="Governo do Estado do Espírito Santo"></div>
+      <div><img src="fotos/cli-pmv.webp" alt="Prefeitura de Vitória"></div>
+      <div><img src="fotos/cli-setur.webp" alt="SETUR – Secretaria de Estado do Turismo"></div>
+      <div><img src="fotos/cli-sesport.webp" alt="SESPORT – Secretaria de Esportes e Lazer"></div>
+      <div><img src="fotos/cli-ifes.webp" alt="Instituto Federal do Espírito Santo"></div>
+      <div><img src="fotos/cli-coppe.webp" alt="COPPE/UFRJ"></div>
+      <div><img src="fotos/cli-ufsj.webp" alt="Universidade Federal de São João del-Rei"></div>
+      <div><img src="fotos/cli-ucp.webp" alt="Universidade Católica de Petrópolis"></div>
+      <div><img src="fotos/cli-ge-celma.webp" alt="GE Celma"></div>
+      <div><img src="fotos/cli-concremat.webp" alt="Concremat"></div>
+      <div><img src="fotos/cli-engix.webp" alt="Engix Construções e Serviços"></div>
+      <div><img src="fotos/cli-genesis.webp" alt="Gênesis Empreendimentos"></div>
+      <div><img src="fotos/cli-pas.webp" alt="PAS Projetos, Assessoria e Sistemas"></div>
+    </div>
+    <div class="inst-tit rv d3">Instituições de que o grupo é membro</div>
+    <div class="logos inst rv d4">
+      <div><img src="fotos/inst-aci.webp" alt="ACI – American Concrete Institute"></div>
+      <div><img src="fotos/inst-fib.webp" alt="fib – Fédération Internationale du Béton"></div>
+      <div><img src="fotos/inst-iabse.webp" alt="IABSE"></div>
+      <div><img src="fotos/inst-ibracon.webp" alt="IBRACON"></div>
+      <div><img src="fotos/inst-abece.webp" alt="ABECE"></div>
+      <div><img src="fotos/inst-abpe.webp" alt="ABPE"></div>
+      <div><img src="fotos/inst-ibape.webp" alt="IBAPE"></div>
+      <div><img src="fotos/inst-abms.webp" alt="ABMS"></div>
+      <div><img src="fotos/inst-adpat.webp" alt="ADPAT"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 07 ATC ============================ -->
+<section id="atc" class="gelo" data-slide data-cap="07" data-nome="Assessoria condominial">
+  <div class="dentro atc">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(07)</b> ATC · Assessoria Técnica Condominial</div>
+      <h2 class="h2 rv d2">Segurança técnica para o condomínio<span class="ponto">.</span></h2>
+      <p class="lead rv d3" style="margin-top:14px">Tranquilidade para a gestão do síndico. A ATC é um serviço de assessoria técnica especializada que apoia o síndico e a administração do condomínio nas decisões sobre os aspectos técnicos da edificação.</p>
+      <div class="norma rv d3">Gestão em conformidade com a NBR 5674 e a NBR 16280</div>
+      <div class="atc-pil rv d4">
+        <div><b>Preventiva</b><span>Identifica riscos e prioridades de manutenção.</span></div>
+        <div><b>Técnica</b><span>Analisa propostas, reformas e intervenções.</span></div>
+        <div><b>Estratégica</b><span>Apoia decisões do síndico com respaldo técnico.</span></div>
+      </div>
+      <div class="aviso rv d5"><b>A ATC não é construtora e não executa obras.</b><span>Seu papel é orientar tecnicamente o condomínio, sem substituir empresas.</span></div>
+    </div>
+    <div>
+      <p class="sub-tit rv d2">Com a ATC, o condomínio passa a contar com apoio profissional para:</p>
+      <ul class="checks rv d3">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Avaliação de problemas técnicos existentes no condomínio</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Identificação de prioridades de manutenção e intervenção</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Análise técnica de propostas de empresas prestadoras de serviço</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Orientação sobre reformas em unidades e áreas comuns (NBR 16280)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Apoio técnico na tomada de decisões do síndico</li>
+      </ul>
+      <div class="beneficios rv d4">
+        <h4>Benefícios para o condomínio</h4>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Decisões técnicas mais seguras</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Melhor avaliação de propostas de obras e serviços</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12l5 5L20 6"/></svg>Gestão predial mais eficiente e preventiva</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 08 EQUIPE ============================ -->
+<section id="equipe" class="escuro" data-slide data-cap="08" data-nome="Equipe técnica">
+  <div class="dentro equipe">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(08)</b> Equipe técnica · Sócio fundador</div>
+      <div class="lider rv d2">
+        <div class="rosto"><img src="fotos/equipe-robson.webp" alt="Eng. Robson Luiz Gaiofatto"></div>
+        <div>
+          <h3>Eng. Robson Luiz Gaiofatto, D.Sc.</h3>
+          <div class="cargo">Sócio fundador desde 1986 · Gerente técnico-projetista</div>
+        </div>
+      </div>
+      <ul class="cv rv d3">
+        <li>Engenheiro Civil, UCP, 1984</li>
+        <li>Mestre em Estruturas (M.Sc.), COPPE/UFRJ, 1988</li>
+        <li>Doutor em Estruturas (D.Sc.), COPPE/UFRJ, 1995</li>
+        <li>Pós-doutorado em Concretos Especiais, UNICAMP, 2010/2011</li>
+        <li>Pesquisador em Reabilitação de Estruturas de Concreto, FEUP, Porto (2018/2022)</li>
+        <li>Professor Titular da UCP, Engenharia/Mestrado, desde 1991</li>
+        <li>Professor Adjunto da PUC-Rio (2006/2014)</li>
+        <li>Membro do CT-802, norma de proteção e recuperação de estruturas de concreto</li>
+        <li>Consultor técnico da Defesa Civil de Petrópolis (2004/2016)</li>
+        <li>Mais de 2.250 projetos executados como gerente técnico (desde 1985)</li>
+      </ul>
+      <div class="membros rv d4"><span>FIB</span><span>ACI</span><span>IABSE</span><span>ABECE</span><span>IBRACON</span><span>ABPE</span><span>IBAPE-ES</span><span>ABMS</span><span>ASCP (Portugal)</span><span>Ordem dos Engenheiros – Norte de Portugal</span></div>
+    </div>
+    <div>
+      <div class="selo-fund rv d2">
+        <img src="fotos/logo-40anos.png" alt="Encopetro 40 anos">
+        <div><span>Desde</span><b>1986</b><span>Encopetro e ESEEL<br>Engenharia Estrutural</span></div>
+      </div>
+      <div class="mini-stats rv d3">
+        <div><b>2.500+</b><span>projetos completos</span></div>
+        <div><b>3.000+</b><span>inspeções e perícias</span></div>
+        <div><b>90+</b><span>artigos e publicações</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="coordenacao" class="escuro-2" data-slide data-cap="08" data-nome="Equipe técnica">
+  <div class="dentro equipe">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>(08)</b> Equipe técnica · Coordenação de projetos</div>
+      <div class="lider rv d2">
+        <div class="rosto"><img src="fotos/equipe-luiz.webp" alt="Eng. Luiz Araujo de Souza Junior"></div>
+        <div>
+          <h3>Eng. Luiz Araujo de Souza Junior, M.Sc.</h3>
+          <div class="cargo">Coordenador geral de projetos · ES – ESEEL Engenharia</div>
+        </div>
+      </div>
+      <ul class="cv rv d3">
+        <li>Engenheiro Civil (UNISA) e Engenheiro de Produção (UNIVERSO)</li>
+        <li>Mestre em Gestão de Sistemas de Engenharia, UCP</li>
+        <li>Especialista e técnico laboratorista do Laboratório de Concreto/Estruturas da UCP</li>
+        <li>Professor de pós-graduação do IPETEC: Gerenciamento e Fiscalização, Engenharia de Infraestruturas e Engenharia de Estruturas</li>
+        <li>Professor dos cursos de Inspeção e Patologia de Estruturas de Concreto Armado e de Manutenção Predial, SENGE-RJ</li>
+        <li>Professor convidado da UCP: minicursos de técnicas de construção e de inspeção em estruturas</li>
+        <li>Cursos de Concreto Protendido (CREA-RJ) e de Patologia e Recuperação de Estruturas de Concreto Armado e Protendido (IBAPE/CREA-ES)</li>
+        <li>Sócio fundador da VistoPred Soluções</li>
+      </ul>
+      <div class="membros rv d4"><span>IBRACON</span><span>ABECE</span><span>ADPAT – Academia das Patologias das Construções</span></div>
+    </div>
+    <div>
+      <div class="lider-num rv d2"><b>850+</b><span>projetos executados como coordenador na Encopetro e na ESEEL, desde 2012</span></div>
+      <div class="sub-esc rv d3">Frentes que coordena</div>
+      <div class="atua rv d3">
+        <span>Edificações e pontes em concreto armado e protendido</span>
+        <span>Recuperação e reforço de pontes e edificações</span>
+        <span>Contenções e estabilização de encostas</span>
+        <span>Laudos técnicos de avaliação estrutural</span>
+        <span>Gerenciamento e fiscalização de obras</span>
+      </div>
+      <div class="sub-esc rv d4" style="margin-top:22px">Coordenação e equipe</div>
+      <div class="pessoas rv d4">
+        <div class="pessoa"><div class="rosto"><img src="fotos/equipe-camillo.webp" alt=""></div><div><h4>Eng. Camillo Fachetti</h4><span>Coordenador de projetos · RJ</span></div></div>
+        <div class="pessoa"><div class="rosto"><img src="fotos/equipe-ana.webp" alt=""></div><div><h4>Arq. Ana Kyzzy Fachetti, D.Sc.</h4><span>Coordenadora de projetos de arquitetura</span></div></div>
+        <div class="pessoa"><div class="rosto"><img src="fotos/equipe-camila.webp" alt=""></div><div><h4>Eng. Camila Teles</h4><span>Engenheira civil</span></div></div>
+        <div class="pessoa"><div class="rosto"><img src="fotos/equipe-marcelo.webp" alt=""></div><div><h4>Eng. Marcelo Olivetti</h4><span>Engenheiro civil</span></div></div>
+        <div class="pessoa"><div class="rosto"><img src="fotos/equipe-gabriel.webp" alt=""></div><div><h4>Gabriel C. Souza</h4><span>Técnico em edificações</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ENCERRAMENTO ============================ -->
+<section id="contato" class="escuro" data-slide data-cap="08" data-nome="Contato">
+  <div class="foto"></div>
+  <div class="dentro fim">
+    <div>
+      <div class="traco rv"></div>
+      <div class="olho rv d1"><b>Próximo passo</b></div>
+      <h2 class="rv d2">Muito obrigado<span class="ponto">.</span></h2>
+      <p class="lead rv d3">Conte com o Grupo Encopetro para projetar, inspecionar, reforçar e acompanhar a sua obra — do primeiro cálculo à entrega.</p>
+      <div class="assin rv d4">
+        <img src="fotos/logo-40anos.png" alt="">
+        <div>GRUPO ENCOPETRO<span>ENGENHARIA ESTRUTURAL · RJ – ES – SP · DESDE 1986</span></div>
+      </div>
+    </div>
+    <div class="canais">
+      <a class="canal rv d2" href="https://wa.me/5527996332248" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>
+        <span><small>WhatsApp</small><b>(27) 99633-2248</b></span>
+      </a>
+      <a class="canal rv d3" href="https://encopetroengenharia.com.br" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        <span><small>Site</small><b>encopetroengenharia.com.br</b></span>
+      </a>
+      <a class="canal rv d4" href="https://www.instagram.com/grupo_encopetro/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <span><small>Instagram</small><b>@grupo_encopetro</b></span>
+      </a>
+      <div class="canal rv d5">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg>
+        <span><small>Facebook</small><b>Encopetro</b></span>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"><span>Grupo Encopetro · Encopetro e ESEEL Engenharia Estrutural</span><span>Portfólio 2026</span></div>
+</section>
+
+<!-- lightbox -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Fotos do projeto">
+  <div class="palco">
+    <img id="lb-img" alt="">
+    <button class="nav ant" id="lb-ant" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="nav prox" id="lb-prox" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="info">
+    <span class="loc" id="lb-loc"></span>
+    <h3 id="lb-tit"></h3>
+    <p id="lb-desc"></p>
+    <span class="cont" id="lb-cont"></span>
+    <div class="miniaturas" id="lb-mini"></div>
+  </div>
+  <button class="fechar" id="lb-fechar" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+</div>
+
+<script>
+(function(){
+"use strict";
+var semMov = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ------------------------- dados das obras ------------------------- */
+var OBRAS = [
+ {t:"Inspeção extraordinária de ponte rodoviária",l:"Espírito Santo",c:"pontes",d:"Inspeção extraordinária com mapa de danos, ensaios em campo e projeto de reabilitação e reforço estrutural.",f:["capa-ponte","pr-es-2","pr-es-3","pr-es-4"]},
+ {t:"Ponte Barra Seca",l:"Espírito Santo",c:"pontes",d:"Fiscalização técnica da obra da ponte.",f:["ponte-barra-seca-1","ponte-barra-seca-2","ponte-barra-seca-3","ponte-barra-seca-4"]},
+ {t:"Ponte do Deve",l:"Espírito Santo",c:"pontes",d:"Fiscalização técnica da obra da ponte.",f:["deve-1","deve-2","deve-3","deve-4"]},
+ {t:"Ponte de Guriri",l:"Espírito Santo",c:"pontes",d:"Fiscalização técnica da obra da ponte.",f:["guriri-1","guriri-2","guriri-3"]},
+ {t:"Alargamento de pontes da BR-101",l:"BR-101, km 0 ao 286 – RJ",c:"pontes",d:"Fiscalização das fundações para o alargamento de pontes ao longo da rodovia.",f:["br101-1","br101-2","br101-3","br101-4"]},
+ {t:"Viaduto do Joá",l:"Rio de Janeiro – RJ",c:"pontes",d:"Consultoria na recuperação estrutural do Elevado das Bandeiras, que liga as zonas Sul e Oeste da cidade.",f:["joa-1","joa-2","joa-3","joa-4"]},
+ {t:"Ciclovia Tim Maia",l:"São Conrado – RJ",c:"pontes",d:"Perícia técnica na ciclovia de 9 km à beira do Atlântico, entre o Leblon e a Barra da Tijuca.",f:["tim-maia-1","tim-maia-2","tim-maia-3","tim-maia-4"]},
+ {t:"Ponte para a Fibria",l:"Espírito Santo",c:"pontes",d:"Análise de deformação e de capacidade de carga da ponte.",f:["fibria-1","fibria-2","fibria-3","fibria-4"]},
+ {t:"Ponte ferroviária de Vassouras",l:"Vassouras – RJ",c:"pontes",d:"Análise estrutural de ponte ferroviária.",f:["vassouras-1","vassouras-2"]},
+ {t:"Edifício Dom Pedro II",l:"Central do Brasil – RJ",c:"edif",d:"Inaugurado em 1858, com o maior relógio de quatro faces do continente. Análise de integridade e segurança da estrutura.",f:["ed-dom-pedro","dom-pedro-2","dom-pedro-3","dom-pedro-4"]},
+ {t:"Reforço de edificação de alto padrão",l:"Itaipava, Petrópolis – RJ",c:"edif",d:"Projeto de reforço estrutural e acompanhamento técnico da obra de reforço da residência.",f:["alto-padrao-1","alto-padrao-2","alto-padrao-3","alto-padrao-4","alto-padrao-5","alto-padrao-6"]},
+ {t:"Bristol Vista Azul Hotel",l:"Pedra Azul, Domingos Martins – ES",c:"edif",d:"Estrutura em concreto armado abandonada havia cerca de 20 anos: levantamento, análise estrutural e projeto de reforço e recuperação.",f:["bristol-1","bristol-2","bristol-3","bristol-4"]},
+ {t:"Laboratórios da UCP",l:"Petrópolis – RJ",c:"edif",d:"Projeto estrutural do prédio que abriga os novos laboratórios da Universidade Católica de Petrópolis.",f:["ucp-1","ucp-2","ucp-3","ucp-4"]},
+ {t:"Edifício comercial na Rua Treze de Maio",l:"Centro, Petrópolis – RJ",c:"edif",d:"Edifício comercial no Centro de Petrópolis.",f:["treze-maio-1","treze-maio-2","treze-maio-3","treze-maio-4"]},
+ {t:"Pisos industriais para galpões",l:"Serra – ES",c:"ind",d:"Laje de piso protendida com aproximadamente 5.800 m² e capacidade de carga de 5 t/m².",f:["pisos-1","pisos-2","pisos-3","pisos-4"]},
+ {t:"Recuperação de hangar e heliporto",l:"Projeto de recuperação",c:"ind",d:"Projeto de recuperação estrutural de hangar e heliporto.",f:["hangar-1","hangar-2","hangar-3","hangar-4"]},
+ {t:"Reservatório Elevado Planalto",l:"Carapina – ES",c:"ind",d:"Projeto de recuperação e reforço estrutural do reservatório elevado.",f:["reservatorio-1","reservatorio-2","reservatorio-3","reservatorio-4"]},
+ {t:"Cais do Porto do Caju",l:"Rio de Janeiro – RJ",c:"ind",d:"Projeto de reforço e recuperação estrutural do cais.",f:["cais-1","cais-2","cais-3","cais-4"]},
+ {t:"Reforço estrutural na CST",l:"Serra – ES",c:"ind",d:"Projeto de reforço estrutural.",f:["cst-1","cst-2","cst-3","cst-4"]},
+ {t:"Contenção de encosta na BR-259",l:"km 79+400, Colatina – ES",c:"cont",d:"Projeto de contenção de encosta e gerenciamento da obra.",f:["br259-colatina-1","br259-colatina-2","br259-colatina-3"]}
+];
+function src(n){ return "fotos/" + n + ".webp"; }
+
+/* ------------------------- grade de obras ------------------------- */
+var grade = document.getElementById("grade-obras");
+var prontas = grade.querySelectorAll(".obra");
+var icoFoto = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg>';
+if (prontas.length) prontas.forEach(function(b, i){ b.addEventListener("click", function(){ abrir(i, 0); }); });
+else OBRAS.forEach(function(o, i){
+  var b = document.createElement("button");
+  b.type = "button"; b.className = "obra rv d" + ((i % 4) + 1); b.setAttribute("data-c", o.c);
+  b.setAttribute("aria-label", "Ver fotos: " + o.t);
+  b.innerHTML = '<img loading="lazy" src="' + src(o.f[0]) + '" alt="">' +
+    '<span class="qt">' + icoFoto + o.f.length + '</span>' +
+    '<span class="ot"><span>' + o.l + '</span><b>' + o.t + '</b></span>' +
+    '<span class="ver"><i>VER FOTOS</i></span>';
+  b.addEventListener("click", function(){ abrir(i, 0); });
+  grade.appendChild(b);
+});
+
+/* páginas de detalhe para o PDF (4 obras por página, só aparecem na impressão) */
+var ancora = document.getElementById("obras-print-ancora");
+var porPag = 4, totalPag = Math.ceil(OBRAS.length / porPag);
+for (var p = 0; p < totalPag; p++){
+  var s = document.createElement("section");
+  s.className = "obras-print escuro-2";
+  var h = '<div class="op-topo"><h2>Projetos e recuperações<span class="ponto">.</span></h2><span>(06) · ' + (p + 1) + ' / ' + totalPag + '</span></div><div class="op-grade">';
+  OBRAS.slice(p * porPag, p * porPag + porPag).forEach(function(o){
+    var f = o.f;
+    h += '<div class="op"><div class="g"><img src="' + src(f[0]) + '" alt=""></div>' +
+         '<div class="p"><img src="' + src(f[1] || f[0]) + '" alt=""></div>' +
+         '<div class="p"><img src="' + src(f[2] || f[1] || f[0]) + '" alt=""></div>' +
+         '<div class="t"><span>' + o.l + '</span><b>' + o.t + '</b><p>' + o.d + '</p></div></div>';
+  });
+  s.innerHTML = h + '</div>';
+  s.style.flexDirection = "column";
+  s.style.justifyContent = "flex-start";
+  ancora.parentNode.insertBefore(s, ancora);
+}
+
+/* filtros */
+var botoes = document.querySelectorAll(".filtros button");
+botoes.forEach(function(bt){
+  bt.addEventListener("click", function(){
+    botoes.forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+    bt.setAttribute("aria-pressed","true");
+    var f = bt.getAttribute("data-f");
+    grade.querySelectorAll(".obra").forEach(function(o){
+      var mostra = f === "todas" || o.getAttribute("data-c") === f;
+      o.classList.toggle("esconde", !mostra);
+      if (mostra){ o.classList.remove("vis"); void o.offsetWidth; o.classList.add("vis"); }
+    });
+  });
+});
+
+/* ------------------------- lightbox ------------------------- */
+var lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img");
+var atual = 0, fotoAt = 0;
+function abrir(i, k){
+  atual = i; fotoAt = k; var o = OBRAS[i];
+  document.getElementById("lb-tit").textContent = o.t;
+  document.getElementById("lb-loc").textContent = o.l;
+  document.getElementById("lb-desc").textContent = o.d;
+  var mini = document.getElementById("lb-mini"); mini.innerHTML = "";
+  o.f.forEach(function(n, j){
+    var b = document.createElement("button"); b.type = "button";
+    b.innerHTML = '<img src="' + src(n) + '" alt="">';
+    b.addEventListener("click", function(){ mostrar(j); });
+    mini.appendChild(b);
+  });
+  lb.classList.add("on"); document.body.style.overflow = "hidden";
+  mostrar(k);
+}
+function mostrar(k){
+  var o = OBRAS[atual]; fotoAt = (k + o.f.length) % o.f.length;
+  lbImg.style.animation = "none"; void lbImg.offsetWidth; lbImg.style.animation = "";
+  lbImg.src = src(o.f[fotoAt]); lbImg.alt = o.t;
+  document.getElementById("lb-cont").textContent = "FOTO " + (fotoAt + 1) + " DE " + o.f.length;
+  document.querySelectorAll("#lb-mini button").forEach(function(b, j){ b.classList.toggle("at", j === fotoAt); });
+}
+function fechar(){ lb.classList.remove("on"); document.body.style.overflow = ""; }
+document.getElementById("lb-ant").addEventListener("click", function(){ mostrar(fotoAt - 1); });
+document.getElementById("lb-prox").addEventListener("click", function(){ mostrar(fotoAt + 1); });
+document.getElementById("lb-fechar").addEventListener("click", fechar);
+lb.addEventListener("click", function(e){ if (e.target === lb || e.target.classList.contains("palco")) fechar(); });
+
+/* ------------------------- roleta de dígitos ------------------------- */
+document.querySelectorAll(".slot").forEach(function(el){
+  var v = el.getAttribute("data-v"), h = "";
+  for (var i = 0; i < v.length; i++){
+    var ch = v[i];
+    if (/\d/.test(ch)){
+      var col = "";
+      for (var n = 0; n <= 9; n++) col += "<b>" + n + "</b>";
+      h += '<span class="col" style="--d:' + ch + '"><i style="transition-delay:' + (i * 0.09) + 's">' + col + "</i></span>";
+    } else {
+      h += '<span class="sep">' + ch + "</span>";
+    }
+  }
+  el.innerHTML = h;
+  el.setAttribute("aria-label", v);
+});
+
+/* ------------------------- revelação ------------------------- */
+var alvos = document.querySelectorAll(".rv,.traco,.slot,.ponte-svg,.mapa,.divisor,.tempo,.foto-g");
+if ("IntersectionObserver" in window && !semMov){
+  var io = new IntersectionObserver(function(ents){
+    ents.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add(e.target.classList.contains("slot") ? "on" : "vis");
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.18});
+  alvos.forEach(function(el){ io.observe(el); });
+} else {
+  alvos.forEach(function(el){ el.classList.add("vis"); if (el.classList.contains("slot")) el.classList.add("on"); });
+}
+
+/* ------------------------- barra superior, progresso, capítulo ------------------------- */
+var topo = document.getElementById("topo"), prog = document.getElementById("barra-prog");
+var pil = document.getElementById("pilula"), pilTxt = document.getElementById("pil-txt"), pilBarra = document.getElementById("pil-barra");
+var slides = Array.prototype.slice.call(document.querySelectorAll("section[data-slide]"));
+var caps = {};
+slides.forEach(function(s){ var c = s.getAttribute("data-cap"); (caps[c] = caps[c] || []).push(s); });
+function aoRolar(){
+  var y = window.scrollY, H = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (H > 0 ? y / H * 100 : 0) + "%";
+  topo.classList.toggle("solido", y > 60);
+  var meio = y + innerHeight * 0.5, at = slides[0];
+  slides.forEach(function(s){ if (s.offsetTop <= meio) at = s; });
+  var c = at.getAttribute("data-cap");
+  if (c === "00"){ pil.classList.remove("on"); return; }
+  pil.classList.add("on");
+  pilTxt.innerHTML = "<b>" + c + " / 08</b> · " + at.getAttribute("data-nome");
+  var grupo = caps[c], ini = grupo[0].offsetTop, fim = grupo[grupo.length - 1].offsetTop + grupo[grupo.length - 1].offsetHeight;
+  pilBarra.style.width = Math.max(0, Math.min(1, (meio - ini) / (fim - ini))) * 100 + "%";
+}
+addEventListener("scroll", aoRolar, {passive: true});
+addEventListener("resize", aoRolar);
+aoRolar();
+
+/* ------------------------- modo apresentação ------------------------- */
+var btnApr = document.getElementById("btn-apr"), dica = document.getElementById("dica"), tDica, idxApr = 0;
+function indiceAtual(){
+  var y = window.scrollY + innerHeight * 0.3, k = 0;
+  slides.forEach(function(s, i){ if (s.offsetTop <= y) k = i; });
+  return k;
+}
+function irPara(i){
+  idxApr = Math.max(0, Math.min(slides.length - 1, i));
+  window.scrollTo({top: slides[idxApr].offsetTop, behavior: semMov ? "auto" : "smooth"});
+}
+btnApr.addEventListener("click", function(){
+  var el = document.documentElement;
+  document.body.classList.add("apresentando");
+  if (el.requestFullscreen) el.requestFullscreen().catch(function(){});
+  irPara(indiceAtual());
+  dica.classList.add("on"); clearTimeout(tDica); tDica = setTimeout(function(){ dica.classList.remove("on"); }, 4200);
+});
+var rolouManual = false;
+["wheel","touchmove"].forEach(function(ev){ addEventListener(ev, function(){ rolouManual = true; }, {passive: true}); });
+document.addEventListener("fullscreenchange", function(){
+  if (!document.fullscreenElement) document.body.classList.remove("apresentando");
+});
+document.addEventListener("keydown", function(e){
+  if (lb.classList.contains("on")){
+    if (e.key === "Escape") fechar();
+    else if (e.key === "ArrowRight") mostrar(fotoAt + 1);
+    else if (e.key === "ArrowLeft") mostrar(fotoAt - 1);
+    return;
+  }
+  if (!document.body.classList.contains("apresentando")) return;
+  /* se rolaram com o mouse ou o dedo no meio da apresentação, ressincroniza */
+  if (rolouManual){ idxApr = indiceAtual(); rolouManual = false; }
+  var i = idxApr;
+  if (["ArrowRight","ArrowDown","PageDown"," "].indexOf(e.key) > -1){ e.preventDefault(); irPara(i + 1); }
+  else if (["ArrowLeft","ArrowUp","PageUp"].indexOf(e.key) > -1){ e.preventDefault(); irPara(i - 1); }
+  else if (e.key === "Home"){ e.preventDefault(); irPara(0); }
+  else if (e.key === "End"){ e.preventDefault(); irPara(slides.length - 1); }
+  else if (e.key === "Escape"){ document.body.classList.remove("apresentando"); }
+});
+
+/* antes de imprimir: tudo no estado final */
+addEventListener("beforeprint", function(){
+  alvos.forEach(function(el){ el.classList.add("vis"); if (el.classList.contains("slot")) el.classList.add("on"); });
+});
+})();
+</script>
+</body>
+</html>
